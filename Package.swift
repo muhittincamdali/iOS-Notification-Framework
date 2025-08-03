@@ -4,93 +4,72 @@
 import PackageDescription
 
 let package = Package(
-    name: "iOSNotificationFramework",
+    name: "NotificationFramework",
     platforms: [
         .iOS(.v15),
-        .macOS(.v12),
+        .macOS(.v13),
         .watchOS(.v8),
         .tvOS(.v15)
     ],
     products: [
+        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "iOSNotificationFramework",
-            targets: ["iOSNotificationFramework"]
-        ),
+            name: "NotificationFramework",
+            targets: ["NotificationFramework"]),
         .library(
-            name: "NotificationAnalytics",
-            targets: ["NotificationAnalytics"]
-        ),
-        .library(
-            name: "RichNotifications",
-            targets: ["RichNotifications"]
-        )
+            name: "NotificationFrameworkUI",
+            targets: ["NotificationFrameworkUI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.8.1"),
-        .package(url: "https://github.com/realm/SwiftLint.git", from: "0.54.0"),
-        .package(url: "https://github.com/Quick/Quick.git", from: "7.0.0"),
-        .package(url: "https://github.com/Quick/Nimble.git", from: "13.0.0")
+        // Dependencies declare other packages that this package depends on.
+        .package(url: "https://github.com/apple/swift-collections.git", from: "1.0.0"),
     ],
     targets: [
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "iOSNotificationFramework",
-            dependencies: ["Alamofire"],
+            name: "NotificationFramework",
+            dependencies: [
+                .product(name: "Collections", package: "swift-collections"),
+            ],
             path: "Sources/Core",
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug)),
-                .define("RELEASE", .when(configuration: .release))
+                .define("RELEASE", .when(configuration: .release)),
             ]
         ),
         .target(
-            name: "NotificationAnalytics",
-            dependencies: ["iOSNotificationFramework"],
-            path: "Sources/Analytics",
+            name: "NotificationFrameworkUI",
+            dependencies: ["NotificationFramework"],
+            path: "Sources/UI",
             swiftSettings: [
-                .define("ANALYTICS_ENABLED", .when(configuration: .debug))
+                .define("DEBUG", .when(configuration: .debug)),
+                .define("RELEASE", .when(configuration: .release)),
             ]
         ),
-        .target(
-            name: "RichNotifications",
-            dependencies: ["iOSNotificationFramework"],
-            path: "Sources/RichNotifications",
+        .testTarget(
+            name: "NotificationFrameworkTests",
+            dependencies: ["NotificationFramework"],
+            path: "Tests/Core",
             resources: [
                 .process("Resources")
             ]
         ),
         .testTarget(
-            name: "iOSNotificationFrameworkTests",
-            dependencies: [
-                "iOSNotificationFramework",
-                "Quick",
-                "Nimble"
-            ],
-            path: "Tests/Unit"
+            name: "NotificationFrameworkUITests",
+            dependencies: ["NotificationFrameworkUI"],
+            path: "Tests/UI",
+            resources: [
+                .process("Resources")
+            ]
         ),
         .testTarget(
-            name: "NotificationAnalyticsTests",
-            dependencies: [
-                "NotificationAnalytics",
-                "Quick",
-                "Nimble"
-            ],
-            path: "Tests/Analytics"
+            name: "NotificationFrameworkIntegrationTests",
+            dependencies: ["NotificationFramework", "NotificationFrameworkUI"],
+            path: "Tests/Integration",
+            resources: [
+                .process("Resources")
+            ]
         ),
-        .testTarget(
-            name: "RichNotificationsTests",
-            dependencies: [
-                "RichNotifications",
-                "Quick",
-                "Nimble"
-            ],
-            path: "Tests/RichNotifications"
-        )
-    ],
-    swiftSettings: [
-        .enableUpcomingFeature("BareSlashRegexLiterals"),
-        .enableUpcomingFeature("ConciseMagicFile"),
-        .enableUpcomingFeature("ExistentialAny"),
-        .enableUpcomingFeature("ForwardTrailingClosures"),
-        .enableUpcomingFeature("ImplicitOpenExistentials"),
-        .enableUpcomingFeature("StrictConcurrency")
     ]
 ) 
