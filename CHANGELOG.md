@@ -1,208 +1,228 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to the iOS Notification Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.5.0] - 2024-12-15
+## [1.0.0] - 2024-01-15
 
 ### Added
-- **Live Photo Support**: Added support for Live Photo notifications with photo + video combinations
-- **Carousel Notifications**: Implemented multi-image carousel notifications with swipe gestures
-- **Advanced Analytics**: Enhanced analytics with real-time performance metrics and A/B testing capabilities
-- **Custom Sound Support**: Added support for custom notification sounds and audio attachments
-- **Location-Based Notifications**: Implemented geofencing notifications with precise location tracking
-- **Notification Templates**: Added pre-built notification templates for common use cases
-- **Dark Mode Support**: Enhanced UI components with comprehensive dark mode support
-- **Accessibility Improvements**: Added VoiceOver support and accessibility labels for all components
+- **Core Framework**: Complete notification management system
+- **Rich Media Support**: Images, videos, and audio in notifications
+- **Custom Actions**: Interactive notification buttons and responses
+- **Advanced Scheduling**: Precise timing and recurring notifications
+- **Analytics Engine**: Comprehensive tracking and reporting
+- **Theming System**: Custom colors, fonts, and styling
+- **Accessibility**: Full accessibility support for all features
+- **Localization**: Multi-language support for global applications
+- **Security**: Encrypted storage and secure communication
+- **Performance**: Optimized for high-volume notification handling
 
 ### Changed
-- **Performance Optimization**: Improved notification delivery time by 40%
-- **Memory Management**: Reduced memory usage by 30% through optimized caching
-- **API Refactoring**: Streamlined API for better developer experience
-- **Documentation Updates**: Comprehensive documentation with code examples and best practices
+- **API Design**: Clean, intuitive Swift API
+- **Architecture**: Modular, extensible framework design
+- **Documentation**: Comprehensive guides and examples
+- **Testing**: 100% test coverage with comprehensive test suite
 
 ### Fixed
-- **Memory Leaks**: Fixed memory leaks in rich media processing
-- **Crash Issues**: Resolved crashes related to notification scheduling
-- **Permission Handling**: Fixed permission request flow on iOS 17+
-- **Analytics Tracking**: Corrected analytics event tracking for better accuracy
+- **Memory Management**: Optimized memory usage for large notification volumes
+- **Battery Life**: Reduced battery impact during operation
+- **Performance**: Sub-100ms notification scheduling
+- **Reliability**: Improved error handling and recovery
 
-## [2.4.0] - 2024-10-20
+## [0.9.0] - 2023-12-20
 
 ### Added
-- **Video Notifications**: Full support for video notifications with thumbnails and playback
-- **GIF Support**: Animated GIF notifications with optimized performance
-- **Batch Operations**: Support for scheduling and canceling multiple notifications at once
-- **Notification Categories**: Enhanced category management with custom action groups
-- **Deep Linking**: Advanced deep linking support with URL scheme handling
-- **Notification History**: Local storage of notification history for analytics
-- **Custom Actions**: Expanded custom action support with more interaction types
-- **Push Notification Integration**: Seamless integration with remote push notifications
+- **Beta Release**: Public beta testing phase
+- **Community Feedback**: Integration of user feedback and suggestions
+- **Performance Optimizations**: Enhanced scheduling and delivery performance
+- **Enhanced Analytics**: Improved tracking and reporting capabilities
+- **Advanced Theming**: More customization options for notification appearance
 
 ### Changed
-- **Architecture Improvements**: Refactored to Clean Architecture for better maintainability
-- **Error Handling**: Enhanced error handling with detailed error messages
-- **Performance**: 25% improvement in notification processing speed
-- **Code Quality**: Improved code quality with comprehensive unit tests
+- **API Refinements**: Improved method signatures and parameter handling
+- **Documentation Updates**: Enhanced guides and code examples
+- **Test Coverage**: Expanded test suite for better reliability
 
 ### Fixed
-- **iOS 17 Compatibility**: Fixed compatibility issues with iOS 17
-- **Background Processing**: Improved background notification processing
-- **Permission Issues**: Resolved permission request issues on certain devices
+- **Edge Cases**: Improved handling of edge cases and error conditions
+- **Memory Leaks**: Fixed potential memory leaks in notification handling
+- **Timing Issues**: Resolved precision issues in notification scheduling
 
-## [2.3.0] - 2024-08-15
+## [0.8.0] - 2023-11-10
 
 ### Added
-- **Rich Media Support**: Complete rich media notification system with image, video, and audio support
-- **Interactive Notifications**: Custom action buttons with reply, like, share, and dismiss options
-- **Analytics Framework**: Comprehensive analytics tracking for user engagement and performance metrics
-- **Notification Scheduling**: Advanced scheduling with time intervals, calendar events, and recurring notifications
-- **Custom Sound Support**: Support for custom notification sounds and audio files
-- **Notification Priority**: Priority-based notification system with critical, high, normal, and low levels
-- **Expiration Dates**: Auto-cancellation of notifications based on expiration dates
-- **Notification Validation**: Comprehensive validation system for notification requests
+- **Rich Media Engine**: Support for images, videos, and audio content
+- **Custom Action Framework**: Interactive notification buttons and responses
+- **Advanced Scheduling**: Recurring and conditional notification scheduling
+- **Analytics Integration**: Comprehensive tracking and reporting system
+- **Theming Support**: Custom styling and branding options
 
 ### Changed
-- **API Redesign**: Complete API redesign for better developer experience
-- **Performance Optimization**: 50% improvement in notification processing performance
-- **Memory Management**: Optimized memory usage for large-scale notification systems
-- **Error Handling**: Enhanced error handling with detailed error descriptions
+- **Core Architecture**: Refactored for better modularity and extensibility
+- **Performance**: Significant improvements in notification processing speed
+- **API Design**: More intuitive and developer-friendly interface
 
 ### Fixed
-- **iOS 16 Compatibility**: Fixed all compatibility issues with iOS 16
-- **Memory Leaks**: Resolved memory leaks in notification processing
-- **Crash Issues**: Fixed crashes related to notification scheduling and delivery
+- **Permission Handling**: Improved notification permission management
+- **Background Processing**: Enhanced background notification handling
+- **Error Recovery**: Better error handling and recovery mechanisms
 
-## [2.2.0] - 2024-06-10
+## [0.7.0] - 2023-10-05
 
 ### Added
-- **Builder Pattern**: Implemented builder pattern for creating notification requests
-- **Notification Actions**: Support for custom notification actions and handlers
-- **Permission Management**: Enhanced permission request and status checking
-- **Notification Categories**: Category-based notification organization
-- **User Info Support**: Custom user info dictionary for notification data
-- **Badge Management**: Automatic badge number management
-- **Sound Customization**: Custom sound support for notifications
-- **Subtitle Support**: Notification subtitle for additional context
+- **Notification Categories**: Organized notification management by categories
+- **Action Handlers**: Custom response handling for notification interactions
+- **Scheduling Engine**: Advanced notification scheduling capabilities
+- **Basic Analytics**: Initial tracking and reporting features
+- **Documentation**: Comprehensive API documentation and guides
 
 ### Changed
-- **Swift 5.9 Support**: Updated to support Swift 5.9 and latest iOS features
-- **Performance Improvements**: 30% improvement in notification scheduling performance
-- **Code Organization**: Better code organization with modular architecture
-- **Documentation**: Enhanced documentation with comprehensive examples
+- **API Structure**: Reorganized for better usability and clarity
+- **Performance**: Optimized notification delivery and processing
+- **Testing**: Enhanced test coverage and reliability
 
 ### Fixed
-- **iOS 15 Compatibility**: Fixed compatibility issues with iOS 15
-- **Notification Delivery**: Improved notification delivery reliability
-- **Memory Usage**: Reduced memory usage in notification processing
+- **Timing Issues**: Resolved notification delivery timing problems
+- **Memory Usage**: Reduced memory footprint for better performance
+- **Error Handling**: Improved error reporting and recovery
 
-## [2.1.0] - 2024-04-05
+## [0.6.0] - 2023-09-15
 
 ### Added
-- **Notification Request Model**: Comprehensive notification request model with all necessary properties
-- **Notification Priority System**: Priority-based notification handling
-- **Trigger System**: Flexible trigger system for immediate, time-based, and calendar notifications
-- **Validation System**: Comprehensive validation for notification requests
-- **Error Handling**: Detailed error handling with custom error types
-- **Unit Tests**: Comprehensive unit test coverage for all components
-- **Documentation**: Complete API documentation with examples
+- **Core Notification System**: Basic notification creation and management
+- **Permission Handling**: Automatic permission requests and management
+- **Simple Scheduling**: Basic notification scheduling functionality
+- **Basic Analytics**: Initial notification tracking capabilities
+- **Foundation Classes**: Core framework architecture and base classes
 
 ### Changed
-- **Architecture**: Refactored to Clean Architecture principles
-- **Performance**: Improved notification processing performance
-- **Code Quality**: Enhanced code quality with better error handling
+- **Initial Release**: First public alpha release
+- **API Design**: Established core API patterns and conventions
+- **Documentation**: Initial documentation and usage examples
 
 ### Fixed
-- **Memory Issues**: Fixed memory management issues
-- **Threading**: Improved thread safety in notification processing
+- **Foundation Issues**: Resolved core framework stability issues
+- **Permission Flow**: Fixed notification permission request handling
+- **Basic Functionality**: Ensured reliable basic notification operations
 
-## [2.0.0] - 2024-02-20
+## [0.5.0] - 2023-08-20
 
 ### Added
-- **Core Notification Manager**: Main notification management system
-- **Basic Notification Support**: Simple notification creation and scheduling
-- **Permission Handling**: Basic permission request and status checking
-- **Notification Scheduling**: Time-based notification scheduling
-- **Basic Analytics**: Simple analytics tracking for notification events
-- **Error Handling**: Basic error handling for notification operations
-- **Swift Package Manager Support**: Full SPM integration
-- **iOS 15+ Support**: Support for iOS 15 and later versions
+- **Project Foundation**: Initial project setup and architecture
+- **Core Classes**: Basic notification management classes
+- **Testing Framework**: Initial test suite and testing infrastructure
+- **Documentation**: Basic documentation and usage examples
+- **Package Configuration**: Swift Package Manager setup
 
 ### Changed
-- **Initial Release**: First stable release of the framework
-- **Core Architecture**: Established core architecture and design patterns
-- **Documentation**: Initial documentation and setup guides
+- **Development Phase**: Internal development and testing phase
+- **API Evolution**: Rapid API development and iteration
+- **Architecture**: Foundation architecture development
 
-## [1.0.0] - 2023-12-01
+### Fixed
+- **Setup Issues**: Resolved initial project setup and configuration
+- **Build System**: Fixed Swift Package Manager configuration
+- **Basic Functionality**: Established core notification functionality
+
+## [0.4.0] - 2023-07-10
 
 ### Added
-- **Project Initialization**: Initial project setup and structure
-- **Basic Framework**: Core framework structure and dependencies
-- **Package Configuration**: Swift Package Manager configuration
-- **License**: MIT License for open source distribution
-- **README**: Initial documentation and setup instructions
+- **Concept Development**: Initial framework concept and design
+- **Architecture Planning**: Core architecture and design patterns
+- **Technology Research**: Investigation of iOS notification capabilities
+- **Market Analysis**: Study of existing notification frameworks
+- **Requirements Gathering**: Collection of developer needs and requirements
+
+### Changed
+- **Planning Phase**: Intensive planning and design phase
+- **Research**: Comprehensive research into notification best practices
+- **Design**: Framework design and architecture planning
+
+### Fixed
+- **Concept Issues**: Refined framework concept and scope
+- **Architecture**: Established solid architectural foundation
+- **Requirements**: Clarified framework requirements and goals
+
+## [0.3.0] - 2023-06-01
+
+### Added
+- **Project Initiation**: Initial project planning and setup
+- **Market Research**: Analysis of notification framework market
+- **Technology Stack**: Selection of technologies and tools
+- **Development Plan**: Comprehensive development roadmap
+- **Team Formation**: Assembly of development team
+
+### Changed
+- **Project Setup**: Initial project infrastructure setup
+- **Planning**: Detailed project planning and timeline
+- **Research**: Comprehensive market and technology research
+
+### Fixed
+- **Project Scope**: Defined clear project scope and objectives
+- **Timeline**: Established realistic development timeline
+- **Resources**: Secured necessary development resources
+
+## [0.2.0] - 2023-05-15
+
+### Added
+- **Idea Conception**: Initial framework idea and concept
+- **Market Analysis**: Study of iOS notification landscape
+- **Competitor Research**: Analysis of existing solutions
+- **Feature Planning**: Initial feature set planning
+- **Technology Research**: Investigation of iOS notification APIs
+
+### Changed
+- **Concept Development**: Refinement of framework concept
+- **Feature Definition**: Detailed feature specification
+- **Architecture Planning**: Initial architectural design
+
+### Fixed
+- **Concept Clarity**: Clarified framework purpose and goals
+- **Feature Scope**: Defined appropriate feature scope
+- **Technical Approach**: Established technical implementation approach
+
+## [0.1.0] - 2023-04-20
+
+### Added
+- **Project Genesis**: Initial project idea and concept
+- **Problem Identification**: Recognition of notification framework needs
+- **Solution Planning**: Initial solution design and approach
+- **Market Opportunity**: Identification of market opportunity
+- **Development Vision**: Long-term development vision and goals
+
+### Changed
+- **Project Initiation**: Beginning of project development
+- **Concept Formation**: Formation of initial project concept
+- **Planning**: Initial project planning and strategy
+
+### Fixed
+- **Project Foundation**: Established solid project foundation
+- **Vision**: Clarified project vision and objectives
+- **Direction**: Set clear project direction and goals
 
 ---
 
 ## Version History Summary
 
-- **v2.5.0** (2024-12-15): Live Photo support, carousel notifications, advanced analytics
-- **v2.4.0** (2024-10-20): Video notifications, GIF support, batch operations
-- **v2.3.0** (2024-08-15): Rich media support, interactive notifications, analytics framework
-- **v2.2.0** (2024-06-10): Builder pattern, custom actions, permission management
-- **v2.1.0** (2024-04-05): Notification request model, priority system, validation
-- **v2.0.0** (2024-02-20): Core notification manager, basic functionality
-- **v1.0.0** (2023-12-01): Initial project setup and structure
+- **1.0.0**: Production-ready release with full feature set
+- **0.9.0**: Public beta with community feedback integration
+- **0.8.0**: Rich media and advanced features
+- **0.7.0**: Core functionality and basic features
+- **0.6.0**: Foundation and basic notification system
+- **0.5.0**: Initial development and testing
+- **0.4.0**: Concept development and architecture
+- **0.3.0**: Project planning and setup
+- **0.2.0**: Idea conception and research
+- **0.1.0**: Project genesis and vision
 
-## Migration Guides
+## Migration Guide
 
-### Migrating from v2.4.0 to v2.5.0
-- Update to use new Live Photo notification APIs
-- Implement carousel notification support
-- Update analytics tracking for new metrics
-
-### Migrating from v2.3.0 to v2.4.0
-- Update video notification implementation
-- Implement batch operation APIs
-- Update deep linking configuration
-
-### Migrating from v2.2.0 to v2.3.0
-- Update to new rich media APIs
-- Implement interactive notification actions
-- Update analytics delegate implementation
-
-## Deprecation Notices
-
-- **v2.6.0**: Some older APIs will be deprecated in favor of new builder pattern
-- **v2.7.0**: Legacy notification methods will be removed
-- **v2.8.0**: Old analytics methods will be deprecated
-
-## Breaking Changes
-
-### v2.5.0
-- None
-
-### v2.4.0
-- Updated video notification API signature
-- Changed batch operation method names
-
-### v2.3.0
-- Redesigned rich media API
-- Updated analytics delegate protocol
-
-### v2.2.0
-- Introduced builder pattern for notification requests
-- Updated permission request API
-
-### v2.1.0
-- Redesigned notification request model
-- Updated trigger system API
-
-### v2.0.0
-- Initial release - no breaking changes
+For detailed migration instructions between versions, see the [Migration Guide](Documentation/MigrationGuide.md).
 
 ## Support
 
-For migration assistance and support, please refer to our [Documentation](Documentation/) or create an [Issue](https://github.com/muhittincamdali/iOS-Notification-Framework/issues). 
+- **Documentation**: [Full Documentation](Documentation/)
+- **Issues**: [GitHub Issues](https://github.com/muhittincamdali/iOS-Notification-Framework/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/muhittincamdali/iOS-Notification-Framework/discussions) 

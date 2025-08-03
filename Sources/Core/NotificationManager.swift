@@ -1,339 +1,451 @@
+//
+//  NotificationManager.swift
+//  NotificationFramework
+//
+//  Created by Muhittin Camdali on 2024-01-15.
+//  Copyright © 2024 Muhittin Camdali. All rights reserved.
+//
+
 import Foundation
 import UserNotifications
-import UIKit
+import Combine
 
-/// Advanced notification management system for iOS applications
-/// Provides comprehensive notification handling with rich media support,
-/// custom actions, scheduling, and analytics tracking
+/// A comprehensive notification management system for iOS applications.
+///
+/// The `NotificationManager` provides a high-level interface for working with
+/// local and remote notifications. It handles permission requests, notification
+/// scheduling, user interaction responses, and analytics tracking.
+///
+/// ## Example Usage
+/// ```swift
+/// let manager = NotificationManager.shared
+/// let granted = try await manager.requestPermissions()
+/// if granted {
+///     let notification = NotificationContent(
+///         title: "Welcome!",
+///         body: "Thank you for using our app",
+///         category: "welcome"
+///     )
+///     manager.schedule(notification, at: Date().addingTimeInterval(60))
+/// }
+/// ```
 @available(iOS 15.0, *)
-public final class NotificationManager: NSObject {
+public class NotificationManager: NSObject, ObservableObject {
     
     // MARK: - Singleton
+    
+    /// Shared instance of the notification manager.
     public static let shared = NotificationManager()
     
     // MARK: - Properties
+    
+    /// The underlying notification center.
     private let notificationCenter = UNUserNotificationCenter.current()
-    private var analyticsDelegate: NotificationAnalyticsDelegate?
-    private var customActions: [String: NotificationAction] = [:]
-    private var scheduledNotifications: [String: NotificationRequest] = [:]
     
-    // MARK: - Configuration
-    public struct Configuration {
-        public let appName: String
-        public let defaultSound: UNNotificationSound?
-        public let defaultBadge: Int
-        public let enableAnalytics: Bool
-        public let enableRichMedia: Bool
-        public let enableCustomActions: Bool
-        
-        public init(
-            appName: String,
-            defaultSound: UNNotificationSound? = .default,
-            defaultBadge: Int = 1,
-            enableAnalytics: Bool = true,
-            enableRichMedia: Bool = true,
-            enableCustomActions: Bool = true
-        ) {
-            self.appName = appName
-            self.defaultSound = defaultSound
-            self.defaultBadge = defaultBadge
-            self.enableAnalytics = enableAnalytics
-            self.enableRichMedia = enableRichMedia
-            self.enableCustomActions = enableCustomActions
-        }
-    }
+    /// Current notification settings.
+    @Published public private(set) var settings: UNNotificationSettings?
     
-    private var configuration: Configuration?
+    /// Pending notification requests.
+    @Published public private(set) var pendingRequests: [UNNotificationRequest] = []
+    
+    /// Delivered notifications.
+    @Published public private(set) var deliveredNotifications: [UNNotification] = []
+    
+    /// Notification categories for organizing notifications.
+    private var categories: Set<UNNotificationCategory> = []
+    
+    /// Action handlers for custom notification actions.
+    private var actionHandlers: [String: NotificationActionHandler] = [:]
+    
+    /// Analytics tracker for notification events.
+    private let analyticsTracker = NotificationAnalyticsTracker()
+    
+    /// Notification content builder for creating rich notifications.
+    private let contentBuilder = NotificationContentBuilder()
+    
+    /// Scheduler for managing notification timing.
+    private let scheduler = NotificationScheduler()
     
     // MARK: - Initialization
+    
     private override init() {
         super.init()
         setupNotificationCenter()
+        setupNotificationCategories()
     }
     
     // MARK: - Setup
+    
+    /// Sets up the notification center delegate and initial configuration.
     private func setupNotificationCenter() {
         notificationCenter.delegate = self
+        loadNotificationSettings()
+        loadPendingRequests()
+        loadDeliveredNotifications()
     }
     
-    // MARK: - Configuration
-    public func configure(with configuration: Configuration) {
-        self.configuration = configuration
-        setupCustomActions()
-        setupAnalytics()
+    /// Sets up default notification categories.
+    private func setupNotificationCategories() {
+        let defaultCategories: [UNNotificationCategory] = [
+            createWelcomeCategory(),
+            createReminderCategory(),
+            createActionCategory(),
+            createRichMediaCategory()
+        ]
+        
+        categories = Set(defaultCategories)
+        notificationCenter.setNotificationCategories(categories)
     }
     
     // MARK: - Permission Management
-    public func requestNotificationPermissions(
-        options: UNAuthorizationOptions = [.alert, .badge, .sound, .provisional],
-        completion: @escaping (Bool, Error?) -> Void
-    ) {
-        notificationCenter.requestAuthorization(options: options) { [weak self] granted, error in
-            DispatchQueue.main.async {
-                if granted {
-                    self?.registerForRemoteNotifications()
-                    self?.analyticsDelegate?.trackPermissionGranted()
-                } else {
-                    self?.analyticsDelegate?.trackPermissionDenied()
-                }
-                completion(granted, error)
+    
+    /// Requests notification permissions from the user.
+    ///
+    /// - Returns: `true` if permissions were granted, `false` otherwise.
+    /// - Throws: `NotificationError.permissionDenied` if permissions are denied.
+    @MainActor
+    public func requestPermissions() async throws -> Bool {
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound, .provisional]
+        
+        do {
+            let granted = try await notificationCenter.requestAuthorization(options: options)
+            
+            if granted {
+                await loadNotificationSettings()
+                analyticsTracker.trackPermissionGranted()
+            } else {
+                analyticsTracker.trackPermissionDenied()
+                throw NotificationError.permissionDenied
             }
+            
+            return granted
+        } catch {
+            analyticsTracker.trackPermissionError(error)
+            throw NotificationError.permissionRequestFailed(error)
         }
     }
     
-    public func checkNotificationPermissions(completion: @escaping (UNAuthorizationStatus) -> Void) {
-        notificationCenter.getNotificationSettings { settings in
-            DispatchQueue.main.async {
-                completion(settings.authorizationStatus)
-            }
-        }
+    /// Checks current notification authorization status.
+    ///
+    /// - Returns: The current authorization status.
+    @MainActor
+    public func checkAuthorizationStatus() async -> UNAuthorizationStatus {
+        let settings = await notificationCenter.notificationSettings()
+        return settings.authorizationStatus
     }
     
     // MARK: - Notification Scheduling
-    public func scheduleNotification(
-        _ request: NotificationRequest,
-        completion: @escaping (Result<String, NotificationError>) -> Void
-    ) {
-        let content = createNotificationContent(from: request)
-        let trigger = createNotificationTrigger(from: request)
+    
+    /// Schedules a notification for delivery.
+    ///
+    /// - Parameters:
+    ///   - content: The notification content to schedule.
+    ///   - date: The date when the notification should be delivered.
+    ///   - identifier: Optional identifier for the notification request.
+    /// - Returns: The scheduled notification request.
+    /// - Throws: `NotificationError.schedulingFailed` if scheduling fails.
+    @MainActor
+    public func schedule(_ content: NotificationContent, at date: Date, identifier: String? = nil) async throws -> UNNotificationRequest {
+        let request = try await contentBuilder.buildRequest(from: content, scheduledFor: date, identifier: identifier)
         
-        let notificationRequest = UNNotificationRequest(
-            identifier: request.identifier,
-            content: content,
-            trigger: trigger
-        )
-        
-        notificationCenter.add(notificationRequest) { [weak self] error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    self?.analyticsDelegate?.trackNotificationSchedulingFailed(error: error)
-                    completion(.failure(.schedulingFailed(error)))
-                } else {
-                    self?.scheduledNotifications[request.identifier] = request
-                    self?.analyticsDelegate?.trackNotificationScheduled(request: request)
-                    completion(.success(request.identifier))
-                }
-            }
+        do {
+            try await notificationCenter.add(request)
+            await loadPendingRequests()
+            analyticsTracker.trackNotificationScheduled(content, date: date)
+            return request
+        } catch {
+            analyticsTracker.trackSchedulingError(error)
+            throw NotificationError.schedulingFailed(error)
         }
     }
     
-    public func scheduleMultipleNotifications(
-        _ requests: [NotificationRequest],
-        completion: @escaping (Result<[String], NotificationError>) -> Void
-    ) {
-        let group = DispatchGroup()
-        var results: [String] = []
-        var errors: [NotificationError] = []
+    /// Schedules a rich media notification.
+    ///
+    /// - Parameters:
+    ///   - content: The rich notification content.
+    ///   - date: The date when the notification should be delivered.
+    ///   - identifier: Optional identifier for the notification request.
+    /// - Returns: The scheduled notification request.
+    /// - Throws: `NotificationError.schedulingFailed` if scheduling fails.
+    @MainActor
+    public func scheduleRichNotification(_ content: RichNotificationContent, at date: Date, identifier: String? = nil) async throws -> UNNotificationRequest {
+        let request = try await contentBuilder.buildRichRequest(from: content, scheduledFor: date, identifier: identifier)
+        
+        do {
+            try await notificationCenter.add(request)
+            await loadPendingRequests()
+            analyticsTracker.trackRichNotificationScheduled(content, date: date)
+            return request
+        } catch {
+            analyticsTracker.trackSchedulingError(error)
+            throw NotificationError.schedulingFailed(error)
+        }
+    }
+    
+    /// Schedules a recurring notification.
+    ///
+    /// - Parameters:
+    ///   - content: The notification content.
+    ///   - schedule: The recurring schedule configuration.
+    /// - Returns: Array of scheduled notification requests.
+    /// - Throws: `NotificationError.schedulingFailed` if scheduling fails.
+    @MainActor
+    public func scheduleRecurring(_ content: NotificationContent, schedule: RecurringSchedule) async throws -> [UNNotificationRequest] {
+        let requests = try await scheduler.scheduleRecurring(content, schedule: schedule)
         
         for request in requests {
-            group.enter()
-            scheduleNotification(request) { result in
-                switch result {
-                case .success(let identifier):
-                    results.append(identifier)
-                case .failure(let error):
-                    errors.append(error)
-                }
-                group.leave()
-            }
+            try await notificationCenter.add(request)
         }
         
-        group.notify(queue: .main) {
-            if errors.isEmpty {
-                completion(.success(results))
-            } else {
-                completion(.failure(.multipleSchedulingFailed(errors)))
-            }
-        }
+        await loadPendingRequests()
+        analyticsTracker.trackRecurringNotificationScheduled(content, schedule: schedule)
+        return requests
     }
     
-    // MARK: - Notification Cancellation
-    public func cancelNotification(withIdentifier identifier: String) {
+    // MARK: - Notification Management
+    
+    /// Removes a pending notification request.
+    ///
+    /// - Parameter identifier: The identifier of the notification to remove.
+    @MainActor
+    public func removePendingNotification(withIdentifier identifier: String) async {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
-        scheduledNotifications.removeValue(forKey: identifier)
-        analyticsDelegate?.trackNotificationCancelled(identifier: identifier)
+        await loadPendingRequests()
+        analyticsTracker.trackNotificationRemoved(identifier: identifier)
     }
     
-    public func cancelAllNotifications() {
+    /// Removes all pending notification requests.
+    @MainActor
+    public func removeAllPendingNotifications() async {
         notificationCenter.removeAllPendingNotificationRequests()
-        scheduledNotifications.removeAll()
-        analyticsDelegate?.trackAllNotificationsCancelled()
+        await loadPendingRequests()
+        analyticsTracker.trackAllNotificationsRemoved()
     }
     
-    public func cancelNotifications(withIdentifiers identifiers: [String]) {
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
-        identifiers.forEach { scheduledNotifications.removeValue(forKey: $0) }
-        analyticsDelegate?.trackNotificationsCancelled(identifiers: identifiers)
+    /// Removes delivered notifications.
+    ///
+    /// - Parameter identifiers: Array of notification identifiers to remove.
+    @MainActor
+    public func removeDeliveredNotifications(withIdentifiers identifiers: [String]) async {
+        notificationCenter.removeDeliveredNotifications(withIdentifiers: identifiers)
+        await loadDeliveredNotifications()
+        analyticsTracker.trackDeliveredNotificationsRemoved(identifiers: identifiers)
     }
     
-    // MARK: - Notification Content Creation
-    private func createNotificationContent(from request: NotificationRequest) -> UNMutableNotificationContent {
-        let content = UNMutableNotificationContent()
-        
-        content.title = request.title
-        content.body = request.body
-        content.subtitle = request.subtitle
-        content.sound = request.sound ?? configuration?.defaultSound
-        content.badge = request.badge ?? configuration?.defaultBadge as NSNumber?
-        content.categoryIdentifier = request.categoryIdentifier
-        content.userInfo = request.userInfo
-        
-        // Rich media support
-        if let imageURL = request.imageURL, configuration?.enableRichMedia == true {
-            content.attachments = createAttachments(from: request)
-        }
-        
-        // Deep linking
-        if let deepLink = request.deepLink {
-            content.userInfo["deepLink"] = deepLink
-        }
-        
-        return content
+    /// Removes all delivered notifications.
+    @MainActor
+    public func removeAllDeliveredNotifications() async {
+        notificationCenter.removeAllDeliveredNotifications()
+        await loadDeliveredNotifications()
+        analyticsTracker.trackAllDeliveredNotificationsRemoved()
     }
     
-    private func createAttachments(from request: NotificationRequest) -> [UNNotificationAttachment] {
-        var attachments: [UNNotificationAttachment] = []
-        
-        if let imageURL = request.imageURL {
-            do {
-                let attachment = try UNNotificationAttachment(
-                    identifier: "image",
-                    url: imageURL,
-                    options: nil
-                )
-                attachments.append(attachment)
-            } catch {
-                analyticsDelegate?.trackAttachmentCreationFailed(error: error)
-            }
-        }
-        
-        return attachments
+    // MARK: - Action Handling
+    
+    /// Registers a handler for a custom notification action.
+    ///
+    /// - Parameters:
+    ///   - actionIdentifier: The identifier of the action to handle.
+    ///   - handler: The closure to execute when the action is triggered.
+    public func registerActionHandler(for actionIdentifier: String, handler: @escaping NotificationActionHandler) {
+        actionHandlers[actionIdentifier] = handler
     }
     
-    private func createNotificationTrigger(from request: NotificationRequest) -> UNNotificationTrigger? {
-        switch request.trigger {
-        case .immediate:
-            return nil
-            
-        case .timeInterval(let interval):
-            return UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
-            
-        case .calendar(let dateComponents):
-            return UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-            
-        case .location(let region):
-            return UNLocationNotificationTrigger(region: region, repeats: false)
-        }
-    }
-    
-    // MARK: - Custom Actions
-    public func registerCustomAction(_ action: NotificationAction) {
-        customActions[action.identifier] = action
-        setupCustomActions()
-    }
-    
-    private func setupCustomActions() {
-        guard configuration?.enableCustomActions == true else { return }
-        
-        let actions = customActions.values.map { action in
-            UNNotificationAction(
-                identifier: action.identifier,
-                title: action.title,
-                options: action.options
-            )
-        }
-        
-        let category = UNNotificationCategory(
-            identifier: "custom_actions",
-            actions: actions,
-            intentIdentifiers: [],
-            options: []
-        )
-        
-        notificationCenter.setNotificationCategories([category])
+    /// Removes an action handler.
+    ///
+    /// - Parameter actionIdentifier: The identifier of the action handler to remove.
+    public func removeActionHandler(for actionIdentifier: String) {
+        actionHandlers.removeValue(forKey: actionIdentifier)
     }
     
     // MARK: - Analytics
-    private func setupAnalytics() {
-        guard configuration?.enableAnalytics == true else { return }
-        analyticsDelegate = NotificationAnalyticsDelegate()
+    
+    /// Gets analytics data for notifications.
+    ///
+    /// - Returns: Analytics data containing delivery rates, engagement metrics, etc.
+    public func getAnalytics() -> NotificationAnalytics {
+        return analyticsTracker.getAnalytics()
     }
     
-    // MARK: - Remote Notifications
-    private func registerForRemoteNotifications() {
-        DispatchQueue.main.async {
-            UIApplication.shared.registerForRemoteNotifications()
-        }
+    /// Exports analytics data to a file.
+    ///
+    /// - Parameter fileURL: The URL where the analytics data should be saved.
+    /// - Throws: `NotificationError.exportFailed` if export fails.
+    public func exportAnalytics(to fileURL: URL) throws {
+        try analyticsTracker.exportAnalytics(to: fileURL)
     }
     
-    public func handleRemoteNotificationRegistration(deviceToken: Data) {
-        let tokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        analyticsDelegate?.trackDeviceTokenReceived(token: tokenString)
+    // MARK: - Private Methods
+    
+    /// Loads current notification settings.
+    @MainActor
+    private func loadNotificationSettings() async {
+        settings = await notificationCenter.notificationSettings()
     }
     
-    public func handleRemoteNotificationRegistrationFailed(error: Error) {
-        analyticsDelegate?.trackDeviceTokenFailed(error: error)
+    /// Loads pending notification requests.
+    @MainActor
+    private func loadPendingRequests() async {
+        pendingRequests = await notificationCenter.pendingNotificationRequests()
+    }
+    
+    /// Loads delivered notifications.
+    @MainActor
+    private func loadDeliveredNotifications() async {
+        deliveredNotifications = await notificationCenter.deliveredNotifications()
+    }
+    
+    /// Creates a welcome notification category.
+    private func createWelcomeCategory() -> UNNotificationCategory {
+        let viewAction = UNNotificationAction(
+            identifier: "VIEW_WELCOME",
+            title: "View",
+            options: [.foreground]
+        )
+        
+        let dismissAction = UNNotificationAction(
+            identifier: "DISMISS_WELCOME",
+            title: "Dismiss",
+            options: [.destructive]
+        )
+        
+        return UNNotificationCategory(
+            identifier: "welcome",
+            actions: [viewAction, dismissAction],
+            intentIdentifiers: [],
+            options: [.customDismissAction]
+        )
+    }
+    
+    /// Creates a reminder notification category.
+    private func createReminderCategory() -> UNNotificationCategory {
+        let snoozeAction = UNNotificationAction(
+            identifier: "SNOOZE_REMINDER",
+            title: "Snooze",
+            options: []
+        )
+        
+        let completeAction = UNNotificationAction(
+            identifier: "COMPLETE_REMINDER",
+            title: "Complete",
+            options: [.destructive]
+        )
+        
+        return UNNotificationCategory(
+            identifier: "reminder",
+            actions: [snoozeAction, completeAction],
+            intentIdentifiers: [],
+            options: [.customDismissAction]
+        )
+    }
+    
+    /// Creates an action notification category.
+    private func createActionCategory() -> UNNotificationCategory {
+        let primaryAction = UNNotificationAction(
+            identifier: "PRIMARY_ACTION",
+            title: "Primary Action",
+            options: [.foreground]
+        )
+        
+        let secondaryAction = UNNotificationAction(
+            identifier: "SECONDARY_ACTION",
+            title: "Secondary Action",
+            options: []
+        )
+        
+        return UNNotificationCategory(
+            identifier: "action",
+            actions: [primaryAction, secondaryAction],
+            intentIdentifiers: [],
+            options: [.customDismissAction]
+        )
+    }
+    
+    /// Creates a rich media notification category.
+    private func createRichMediaCategory() -> UNNotificationCategory {
+        let viewAction = UNNotificationAction(
+            identifier: "VIEW_MEDIA",
+            title: "View",
+            options: [.foreground]
+        )
+        
+        let shareAction = UNNotificationAction(
+            identifier: "SHARE_MEDIA",
+            title: "Share",
+            options: []
+        )
+        
+        return UNNotificationCategory(
+            identifier: "rich_media",
+            actions: [viewAction, shareAction],
+            intentIdentifiers: [],
+            options: [.customDismissAction]
+        )
     }
 }
 
 // MARK: - UNUserNotificationCenterDelegate
+
 @available(iOS 15.0, *)
 extension NotificationManager: UNUserNotificationCenterDelegate {
     
+    /// Called when a notification is delivered while the app is in the foreground.
     public func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        analyticsDelegate?.trackNotificationReceived(notification: notification)
-        
-        // Show notification even when app is in foreground
+        analyticsTracker.trackNotificationReceived(notification)
         completionHandler([.banner, .sound, .badge])
     }
     
+    /// Called when the user responds to a notification.
     public func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
-        analyticsDelegate?.trackNotificationTapped(response: response)
+        let actionIdentifier = response.actionIdentifier
+        let notification = response.notification
+        
+        analyticsTracker.trackNotificationResponse(response)
         
         // Handle custom actions
-        if let customAction = customActions[response.actionIdentifier] {
-            customAction.handler?(response)
+        if let handler = actionHandlers[actionIdentifier] {
+            handler(actionIdentifier, notification)
         }
         
-        // Handle deep linking
-        if let deepLink = response.notification.request.content.userInfo["deepLink"] as? String {
-            handleDeepLink(deepLink)
+        // Handle default actions
+        switch actionIdentifier {
+        case UNNotificationDefaultActionIdentifier:
+            handleDefaultAction(for: notification)
+        case UNNotificationDismissActionIdentifier:
+            handleDismissAction(for: notification)
+        default:
+            handleCustomAction(actionIdentifier, for: notification)
         }
         
         completionHandler()
     }
     
-    private func handleDeepLink(_ deepLink: String) {
-        // Implement deep linking logic
-        analyticsDelegate?.trackDeepLinkActivated(link: deepLink)
+    /// Handles the default action when a notification is tapped.
+    private func handleDefaultAction(for notification: UNNotification) {
+        // Override in subclasses or use delegate pattern
+        analyticsTracker.trackDefaultAction(notification)
+    }
+    
+    /// Handles the dismiss action when a notification is dismissed.
+    private func handleDismissAction(for notification: UNNotification) {
+        analyticsTracker.trackDismissAction(notification)
+    }
+    
+    /// Handles custom actions.
+    private func handleCustomAction(_ actionIdentifier: String, for notification: UNNotification) {
+        analyticsTracker.trackCustomAction(actionIdentifier, notification: notification)
     }
 }
 
-// MARK: - Errors
-public enum NotificationError: Error, LocalizedError {
-    case schedulingFailed(Error)
-    case multipleSchedulingFailed([NotificationError])
-    case permissionDenied
-    case invalidRequest
-    
-    public var errorDescription: String? {
-        switch self {
-        case .schedulingFailed(let error):
-            return "Failed to schedule notification: \(error.localizedDescription)"
-        case .multipleSchedulingFailed(let errors):
-            return "Failed to schedule multiple notifications: \(errors.count) errors"
-        case .permissionDenied:
-            return "Notification permissions not granted"
-        case .invalidRequest:
-            return "Invalid notification request"
-        }
-    }
-} 
+// MARK: - Type Aliases
+
+/// Closure type for notification action handlers.
+public typealias NotificationActionHandler = (String, UNNotification) -> Void 

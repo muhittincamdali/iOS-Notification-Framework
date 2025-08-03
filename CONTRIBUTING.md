@@ -4,211 +4,168 @@ Thank you for your interest in contributing to the iOS Notification Framework! T
 
 ## 🤝 How to Contribute
 
-We welcome contributions from the community! Whether you're fixing bugs, adding features, improving documentation, or suggesting ideas, your contributions help make this framework better for everyone.
+We welcome contributions from the community! Here are the main ways you can contribute:
 
-### Types of Contributions
+### 🐛 Bug Reports
 
-- **🐛 Bug Fixes**: Fix issues and improve stability
-- **✨ New Features**: Add new functionality and capabilities
-- **📚 Documentation**: Improve documentation and examples
-- **🧪 Tests**: Add or improve test coverage
-- **🔧 Performance**: Optimize performance and efficiency
-- **🎨 UI/UX**: Enhance user experience and interface
-- **🌐 Localization**: Add support for new languages
-- **📖 Examples**: Create helpful examples and demos
+- Use the [GitHub Issues](https://github.com/muhittincamdali/iOS-Notification-Framework/issues) page
+- Include detailed steps to reproduce the issue
+- Provide system information (iOS version, device, etc.)
+- Include relevant code snippets and error messages
 
-## 🚀 Getting Started
+### 💡 Feature Requests
+
+- Submit feature requests through [GitHub Issues](https://github.com/muhittincamdali/iOS-Notification-Framework/issues)
+- Clearly describe the feature and its benefits
+- Include use cases and examples
+- Consider the impact on existing functionality
+
+### 📝 Documentation
+
+- Improve existing documentation
+- Add new examples and tutorials
+- Fix typos and clarify unclear sections
+- Translate documentation to other languages
+
+### 🧪 Testing
+
+- Write unit tests for new features
+- Improve test coverage
+- Report test failures
+- Create integration tests
+
+### 🔧 Code Contributions
+
+- Fork the repository
+- Create a feature branch
+- Make your changes
+- Write tests for new functionality
+- Submit a pull request
+
+## 🛠️ Development Setup
 
 ### Prerequisites
 
-- **Xcode 15.0+**: Latest version of Xcode
-- **iOS 15.0+**: Target iOS version
-- **Swift 5.9+**: Latest Swift version
-- **Git**: Version control system
-- **GitHub Account**: For pull requests and issues
+- Xcode 15.0 or later
+- iOS 15.0+ deployment target
+- Swift 5.9 or later
+- macOS 13.0 or later
 
-### Development Setup
+### Getting Started
 
-1. **Fork the Repository**
+1. **Fork the repository**
    ```bash
    git clone https://github.com/your-username/iOS-Notification-Framework.git
    cd iOS-Notification-Framework
    ```
 
-2. **Install Dependencies**
-   ```bash
-   # Swift Package Manager dependencies are automatically resolved
-   # No additional installation required
-   ```
-
-3. **Open in Xcode**
+2. **Open in Xcode**
    ```bash
    open Package.swift
    ```
 
-4. **Run Tests**
+3. **Run tests**
    ```bash
-   # In Xcode: Product > Test
-   # Or via command line:
    swift test
    ```
 
-## 📋 Development Guidelines
+4. **Build the framework**
+   ```bash
+   swift build
+   ```
 
-### Code Style
+## 📋 Coding Standards
 
-We follow the [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/) and maintain consistent code style:
+### Swift Style Guide
 
-#### **Naming Conventions**
+We follow the [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/) and maintain consistency with Apple's frameworks.
+
+#### Naming Conventions
+
+- **Types**: Use `PascalCase` for classes, structs, enums, and protocols
+- **Functions and Variables**: Use `camelCase`
+- **Constants**: Use `camelCase` for local constants, `UPPER_SNAKE_CASE` for global constants
+- **Acronyms**: Treat as words (e.g., `URL`, `HTTP`)
+
+#### Code Organization
+
 ```swift
-// ✅ Good
-class NotificationManager { }
-func scheduleNotification() { }
-let notificationRequest: NotificationRequest
+// MARK: - Imports
+import Foundation
+import UserNotifications
 
-// ❌ Bad
-class notification_manager { }
-func ScheduleNotification() { }
-let request: NotificationRequest
-```
+// MARK: - Protocols
+protocol NotificationManagerDelegate: AnyObject {
+    func notificationManager(_ manager: NotificationManager, didReceiveNotification notification: UNNotification)
+}
 
-#### **Documentation**
-```swift
-/// Schedules a notification with the specified request
-/// - Parameter request: The notification request to schedule
-/// - Parameter completion: Completion handler called with the result
-/// - Returns: A cancellable task for the scheduling operation
-public func scheduleNotification(
-    _ request: NotificationRequest,
-    completion: @escaping (Result<String, NotificationError>) -> Void
-) -> CancellableTask
-```
-
-#### **Error Handling**
-```swift
-// ✅ Good
-enum NotificationError: Error, LocalizedError {
-    case schedulingFailed(Error)
-    case permissionDenied
+// MARK: - Classes
+public class NotificationManager {
+    // MARK: - Properties
+    public static let shared = NotificationManager()
     
-    var errorDescription: String? {
-        switch self {
-        case .schedulingFailed(let error):
-            return "Failed to schedule notification: \(error.localizedDescription)"
-        case .permissionDenied:
-            return "Notification permissions not granted"
-        }
+    // MARK: - Private Properties
+    private let notificationCenter = UNUserNotificationCenter.current()
+    
+    // MARK: - Initialization
+    private init() {}
+    
+    // MARK: - Public Methods
+    public func requestPermissions() async throws -> Bool {
+        // Implementation
     }
-}
-
-// ❌ Bad
-enum NotificationError: Error {
-    case failed
-}
-```
-
-### Architecture Principles
-
-We follow **Clean Architecture** principles:
-
-#### **Domain Layer**
-```swift
-// Entities
-public struct NotificationRequest {
-    public let identifier: String
-    public let title: String
-    public let body: String
-    // ...
-}
-
-// Use Cases
-public protocol ScheduleNotificationUseCase {
-    func execute(_ request: NotificationRequest) async throws -> String
-}
-
-// Protocols
-public protocol NotificationRepository {
-    func schedule(_ request: NotificationRequest) async throws -> String
-}
-```
-
-#### **Data Layer**
-```swift
-// Repositories
-public class NotificationRepositoryImpl: NotificationRepository {
-    private let dataSource: NotificationDataSource
     
-    public func schedule(_ request: NotificationRequest) async throws -> String {
+    // MARK: - Private Methods
+    private func setupNotificationCategories() {
         // Implementation
     }
 }
 ```
 
-#### **Presentation Layer**
+#### Documentation
+
+- Use Swift documentation comments for all public APIs
+- Include parameter descriptions, return values, and examples
+- Follow Apple's documentation style
+
 ```swift
-// ViewModels
-public class NotificationViewModel: ObservableObject {
-    @Published var notifications: [NotificationRequest] = []
-    
-    func scheduleNotification(_ request: NotificationRequest) {
-        // Implementation
-    }
+/// Manages notification permissions and scheduling.
+///
+/// The `NotificationManager` provides a high-level interface for working with
+/// local and remote notifications. It handles permission requests, notification
+/// scheduling, and user interaction responses.
+///
+/// ## Example Usage
+/// ```swift
+/// let manager = NotificationManager.shared
+/// let granted = try await manager.requestPermissions()
+/// if granted {
+///     manager.schedule(notification, at: Date().addingTimeInterval(60))
+/// }
+/// ```
+public class NotificationManager {
+    // Implementation
 }
 ```
 
-### Testing Guidelines
+### Testing Standards
 
-#### **Unit Tests**
+- Write unit tests for all public APIs
+- Aim for 100% test coverage
+- Use descriptive test names
+- Follow the Arrange-Act-Assert pattern
+
 ```swift
 class NotificationManagerTests: XCTestCase {
-    var notificationManager: NotificationManager!
-    
-    override func setUpWithError() throws {
-        super.setUp()
-        notificationManager = NotificationManager.shared
-    }
-    
-    func testNotificationScheduling() {
-        // Given
-        let request = NotificationRequest.simple(
-            title: "Test",
-            body: "Test Body"
-        )
+    func testRequestPermissions_WhenGranted_ReturnsTrue() async throws {
+        // Arrange
+        let manager = NotificationManager.shared
         
-        // When
-        let expectation = XCTestExpectation(description: "Notification scheduled")
+        // Act
+        let result = try await manager.requestPermissions()
         
-        // Then
-        XCTAssertTrue(request.isValid)
-        expectation.fulfill()
-        wait(for: [expectation], timeout: 1.0)
-    }
-}
-```
-
-#### **Integration Tests**
-```swift
-class NotificationIntegrationTests: XCTestCase {
-    func testCompleteNotificationFlow() {
-        // Test complete notification flow
-        // 1. Request permissions
-        // 2. Schedule notification
-        // 3. Verify delivery
-        // 4. Test actions
-    }
-}
-```
-
-#### **Performance Tests**
-```swift
-func testNotificationSchedulingPerformance() {
-    measure {
-        for _ in 0..<1000 {
-            _ = NotificationRequest.simple(
-                title: "Performance Test",
-                body: "Performance Test Body"
-            )
-        }
+        // Assert
+        XCTAssertTrue(result)
     }
 }
 ```
@@ -217,339 +174,138 @@ func testNotificationSchedulingPerformance() {
 
 ### Before Submitting
 
-1. **Update Documentation**
-   - Update README.md if needed
-   - Add inline documentation for new APIs
-   - Update CHANGELOG.md with your changes
-
-2. **Add Tests**
-   - Unit tests for new functionality
-   - Integration tests for complex features
-   - Performance tests for critical paths
-
-3. **Run Quality Checks**
+1. **Ensure tests pass**
    ```bash
-   # Run tests
    swift test
-   
-   # Check code style (if using SwiftLint)
-   swiftlint lint
-   
-   # Build for all platforms
-   swift build
    ```
 
-### Pull Request Template
+2. **Check code style**
+   - Follow Swift style guidelines
+   - Use proper indentation (4 spaces)
+   - Remove trailing whitespace
 
-```markdown
-## Description
-Brief description of changes
+3. **Update documentation**
+   - Update README.md if needed
+   - Add documentation comments for new APIs
+   - Update CHANGELOG.md for significant changes
 
-## Type of Change
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
+4. **Test your changes**
+   - Test on different iOS versions
+   - Test on different device types
+   - Verify performance impact
 
-## Testing
-- [ ] Unit tests pass
-- [ ] Integration tests pass
-- [ ] Performance tests pass
-- [ ] Manual testing completed
+### Pull Request Guidelines
 
-## Checklist
-- [ ] Code follows style guidelines
-- [ ] Self-review completed
-- [ ] Documentation updated
-- [ ] Tests added/updated
-- [ ] CHANGELOG.md updated
+1. **Create a descriptive title**
+   - Use present tense ("Add feature" not "Added feature")
+   - Be specific about the change
 
-## Screenshots (if applicable)
-Add screenshots for UI changes
+2. **Write a detailed description**
+   - Explain what the change does
+   - Include motivation and context
+   - Reference related issues
 
-## Additional Notes
-Any additional information
-```
+3. **Include tests**
+   - Add unit tests for new functionality
+   - Update existing tests if needed
+   - Ensure all tests pass
+
+4. **Update documentation**
+   - Update relevant documentation
+   - Add examples for new features
+   - Update API documentation
 
 ### Review Process
 
-1. **Automated Checks**
-   - CI/CD pipeline runs tests
-   - Code coverage analysis
-   - Performance regression tests
-
-2. **Code Review**
-   - At least one maintainer review required
-   - Address all review comments
-   - Update PR based on feedback
-
-3. **Final Approval**
+1. **Automated checks must pass**
    - All tests must pass
-   - Code coverage maintained
-   - Documentation updated
+   - Code coverage must not decrease
+   - No linting errors
 
-## 🐛 Bug Reports
+2. **Code review**
+   - At least one maintainer must approve
+   - Address all review comments
+   - Make requested changes
 
-### Before Reporting
+3. **Final approval**
+   - Maintainer will merge after approval
+   - Changes will be included in next release
 
-1. **Check Existing Issues**
-   - Search existing issues for similar problems
-   - Check closed issues for solutions
+## 🏷️ Issue Labels
 
-2. **Reproduce the Issue**
-   - Provide clear steps to reproduce
-   - Include sample code if applicable
-   - Test on different devices/iOS versions
+We use the following labels to categorize issues:
 
-### Bug Report Template
+- **bug**: Something isn't working
+- **enhancement**: New feature or request
+- **documentation**: Improvements or additions to documentation
+- **good first issue**: Good for newcomers
+- **help wanted**: Extra attention is needed
+- **priority: high**: High priority issue
+- **priority: low**: Low priority issue
+- **question**: Further information is requested
+- **wontfix**: This will not be worked on
 
-```markdown
-## Bug Description
-Clear description of the bug
+## 📚 Resources
 
-## Steps to Reproduce
-1. Step 1
-2. Step 2
-3. Step 3
+### Documentation
 
-## Expected Behavior
-What should happen
+- [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
+- [Apple Developer Documentation](https://developer.apple.com/documentation/)
+- [UserNotifications Framework](https://developer.apple.com/documentation/usernotifications)
 
-## Actual Behavior
-What actually happens
-
-## Environment
-- iOS Version: 15.0+
-- Device: iPhone/iPad
-- Framework Version: 2.5.0
-- Xcode Version: 15.0
-
-## Sample Code
-```swift
-// Minimal code to reproduce the issue
-```
-
-## Additional Information
-- Screenshots if applicable
-- Crash logs if available
-- Performance impact if relevant
-```
-
-## 💡 Feature Requests
-
-### Before Requesting
-
-1. **Check Existing Features**
-   - Review current functionality
-   - Check roadmap for planned features
-
-2. **Research Alternatives**
-   - Look for existing solutions
-   - Consider workarounds
-
-### Feature Request Template
-
-```markdown
-## Feature Description
-Clear description of the requested feature
-
-## Use Case
-Why this feature is needed
-
-## Proposed Solution
-How you think it should work
-
-## Alternatives Considered
-Other approaches you've considered
-
-## Additional Information
-- Screenshots/mockups if applicable
-- Related issues
-- Implementation suggestions
-```
-
-## 📚 Documentation
-
-### Documentation Standards
-
-#### **API Documentation**
-```swift
-/// Advanced notification management system for iOS applications
-/// Provides comprehensive notification handling with rich media support,
-/// custom actions, scheduling, and analytics tracking
-@available(iOS 15.0, *)
-public final class NotificationManager: NSObject {
-    
-    /// Schedules a notification with the specified request
-    /// - Parameter request: The notification request to schedule
-    /// - Parameter completion: Completion handler called with the result
-    /// - Returns: A cancellable task for the scheduling operation
-    public func scheduleNotification(
-        _ request: NotificationRequest,
-        completion: @escaping (Result<String, NotificationError>) -> Void
-    ) -> CancellableTask
-}
-```
-
-#### **README Updates**
-- Update installation instructions
-- Add usage examples
-- Update feature list
-- Include migration guides
-
-#### **CHANGELOG Updates**
-- Add entries for all changes
-- Follow semantic versioning
-- Include breaking changes
-- Document deprecations
-
-## 🧪 Testing
-
-### Test Coverage Requirements
-
-- **Unit Tests**: 90%+ coverage for new code
-- **Integration Tests**: For complex features
-- **Performance Tests**: For critical paths
-- **UI Tests**: For user-facing features
-
-### Test Naming Convention
-
-```swift
-// ✅ Good
-func testNotificationSchedulingWithValidRequest()
-func testNotificationSchedulingFailsWithInvalidRequest()
-func testNotificationCancellationRemovesFromQueue()
-
-// ❌ Bad
-func test1()
-func testNotification()
-func testStuff()
-```
-
-### Test Organization
-
-```swift
-class NotificationManagerTests: XCTestCase {
-    
-    // MARK: - Setup
-    override func setUpWithError() throws {
-        // Setup code
-    }
-    
-    override func tearDownWithError() throws {
-        // Cleanup code
-    }
-    
-    // MARK: - Scheduling Tests
-    func testNotificationScheduling() {
-        // Test implementation
-    }
-    
-    // MARK: - Cancellation Tests
-    func testNotificationCancellation() {
-        // Test implementation
-    }
-    
-    // MARK: - Performance Tests
-    func testNotificationSchedulingPerformance() {
-        // Performance test
-    }
-}
-```
-
-## 🔧 Development Tools
-
-### Recommended Tools
+### Tools
 
 - **Xcode**: Primary development environment
-- **SwiftLint**: Code style enforcement
-- **SwiftFormat**: Code formatting
-- **Instruments**: Performance profiling
-- **GitHub Desktop**: Git client (optional)
+- **Swift Package Manager**: Dependency management
+- **GitHub**: Version control and collaboration
+- **SwiftLint**: Code style enforcement (optional)
 
-### SwiftLint Configuration
+## 🎯 Contribution Areas
 
-```yaml
-# .swiftlint.yml
-disabled_rules:
-  - trailing_whitespace
-  - line_length
+### High Priority
 
-opt_in_rules:
-  - empty_count
-  - force_unwrapping
-  - implicitly_unwrapped_optional
+- **Performance improvements**: Optimize notification scheduling and delivery
+- **Bug fixes**: Critical issues affecting functionality
+- **Security enhancements**: Improve data protection and privacy
+- **Accessibility**: Enhance accessibility features
 
-included:
-  - Sources
-  - Tests
+### Medium Priority
 
-excluded:
-  - Documentation
-  - Examples
-```
+- **New features**: Additional notification capabilities
+- **Documentation**: Improve guides and examples
+- **Testing**: Increase test coverage
+- **Examples**: Add more usage examples
 
-## 📋 Code of Conduct
+### Low Priority
 
-### Our Standards
-
-- **Respectful Communication**: Be respectful and inclusive
-- **Constructive Feedback**: Provide helpful, constructive feedback
-- **Inclusive Environment**: Welcome contributors from all backgrounds
-- **Professional Behavior**: Maintain professional standards
-
-### Unacceptable Behavior
-
-- **Harassment**: Any form of harassment or discrimination
-- **Inappropriate Content**: Offensive or inappropriate content
-- **Spam**: Unwanted promotional content
-- **Trolling**: Deliberately disruptive behavior
+- **Code style**: Minor formatting improvements
+- **Documentation**: Typo fixes and clarifications
+- **Examples**: Additional edge case examples
 
 ## 🏆 Recognition
 
-### Contributors Hall of Fame
+Contributors will be recognized in the following ways:
 
-We recognize and appreciate all contributors:
-
-- **Core Contributors**: Regular contributors with significant impact
-- **Bug Hunters**: Contributors who find and fix important bugs
-- **Documentation Heroes**: Contributors who improve documentation
-- **Test Champions**: Contributors who improve test coverage
-
-### Recognition Levels
-
-- **Bronze**: 1-5 contributions
-- **Silver**: 6-15 contributions
-- **Gold**: 16-30 contributions
-- **Platinum**: 30+ contributions
+- **Contributors list**: Added to README.md contributors section
+- **Release notes**: Mentioned in CHANGELOG.md for significant contributions
+- **GitHub profile**: Contributions appear on your GitHub profile
+- **Community**: Recognition in community discussions and events
 
 ## 📞 Getting Help
 
-### Communication Channels
+If you need help with contributing:
 
-- **GitHub Issues**: For bugs and feature requests
-- **GitHub Discussions**: For questions and discussions
-- **Email**: support@muhittincamdali.com
-- **Documentation**: [Full Documentation](Documentation/)
+- **GitHub Issues**: Ask questions in issues
+- **GitHub Discussions**: Use discussions for general questions
+- **Documentation**: Check the [Documentation](Documentation/) folder
+- **Examples**: Review the [Examples](Examples/) folder
 
-### Response Times
+## 📄 License
 
-- **Critical Bugs**: Within 24 hours
-- **Feature Requests**: Within 1 week
-- **General Questions**: Within 3 days
-- **Documentation Issues**: Within 1 week
-
-## 🙏 Acknowledgments
-
-We appreciate all contributors who help make this framework better:
-
-- **Code Contributors**: Developers who write code
-- **Documentation Contributors**: Writers who improve docs
-- **Test Contributors**: Testers who ensure quality
-- **Community Members**: Users who provide feedback
+By contributing to this project, you agree that your contributions will be licensed under the same MIT License as the project.
 
 ---
 
-**Thank you for contributing to the iOS Notification Framework! 🚀**
+Thank you for contributing to the iOS Notification Framework! Your contributions help make this framework better for the entire iOS development community.
 
-Your contributions help make this framework better for the entire iOS development community. 
+**Made with ❤️ by the iOS Notification Framework Team** 
