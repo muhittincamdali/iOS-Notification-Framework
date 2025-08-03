@@ -119,21 +119,20 @@ notificationManager.registerActionHandler(for: "share_action") { action in
 
 ## 📚 Documentation
 
-- [Getting Started Guide](Documentation/GettingStarted.md)
-- [API Reference](Documentation/APIReference.md)
-- [Advanced Features](Documentation/AdvancedFeatures.md)
-- [Best Practices](Documentation/BestPractices.md)
-- [Migration Guide](Documentation/MigrationGuide.md)
+- [Getting Started Guide](Documentation/Guides/GettingStarted.md)
+- [API Reference](Documentation/API/APIReference.md)
+- [Advanced Features](Documentation/Guides/AdvancedFeatures.md)
+- [Best Practices](Documentation/Guides/BestPractices.md)
+- [Migration Guide](Documentation/Guides/MigrationGuide.md)
 
 ## 🎯 Examples
 
 Check out the [Examples](Examples/) directory for comprehensive usage examples:
 
-- [Basic Notifications](Examples/BasicNotifications/)
+- [Basic Notifications](Examples/Basic/)
+- [Advanced Notifications](Examples/Advanced/)
+- [Custom Actions](Examples/Custom/)
 - [Rich Media Notifications](Examples/RichMediaNotifications/)
-- [Custom Actions](Examples/CustomActions/)
-- [Scheduling](Examples/Scheduling/)
-- [Analytics](Examples/Analytics/)
 
 ## 🧪 Testing
 
