@@ -189,7 +189,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Documentation**: [Full Documentation](Documentation/)
 - **Issues**: [GitHub Issues](https://github.com/muhittincamdali/iOS-Notification-Framework/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/muhittincamdali/iOS-Notification-Framework/discussions)
-- **Email**: support@muhittincamdali.com
+- **Email**: Contact through GitHub Issues
 
 ## 🔄 Changelog
 
@@ -197,6 +197,6 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete list of changes and version hist
 
 ---
 
-**Made with ❤️ by [Muhittin Camdali](https://github.com/muhittincamdali)**
+**Built with ❤️ for the iOS community**
 
 *Empowering iOS developers with world-class notification solutions* 
