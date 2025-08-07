@@ -232,7 +232,6 @@
 
 #### 1️⃣ **Clone the Repository**
 ```bash
-git clone https://github.com/muhittincamdali/iOS-Notification-Framework.git
 cd iOS-Notification-Framework
 ```
 
@@ -279,7 +278,6 @@ notificationManager.requestPermissions { granted in
 
 // 5. Create and schedule notification
 let notification = NotificationContent(
-    title: "Welcome!",
     body: "Thank you for using our app",
     category: "welcome"
 )
@@ -296,7 +294,6 @@ Add the framework to your project:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/muhittincamdali/iOS-Notification-Framework.git", from: "1.0.0")
 ]
 ```
 
@@ -309,7 +306,6 @@ dependencies: [
 ```swift
 // Create image notification
 let imageNotification = RichNotificationContent(
-    title: "New Product Available",
     body: "Check out our latest collection",
     mediaType: .image,
     mediaURL: URL(string: "https://example.com/product.jpg")
@@ -332,7 +328,6 @@ try notificationManager.schedule(
 ```swift
 // Create video notification
 let videoNotification = RichNotificationContent(
-    title: "Product Demo",
     body: "Watch how to use our new feature",
     mediaType: .video,
     mediaURL: URL(string: "https://example.com/demo.mp4"),
@@ -356,7 +351,6 @@ try notificationManager.schedule(
 ```swift
 // Create audio notification
 let audioNotification = RichNotificationContent(
-    title: "Voice Message",
     body: "You have a new voice message",
     mediaType: .audio,
     mediaURL: URL(string: "https://example.com/message.mp3")
@@ -383,26 +377,22 @@ try notificationManager.schedule(
 ```swift
 // Create basic notification actions
 let viewAction = NotificationAction(
-    title: "View",
     identifier: "view_action",
     options: [.foreground]
 )
 
 let shareAction = NotificationAction(
-    title: "Share",
     identifier: "share_action",
     options: [.foreground]
 )
 
 let dismissAction = NotificationAction(
-    title: "Dismiss",
     identifier: "dismiss_action",
     options: [.destructive]
 )
 
 // Create notification with actions
 let notificationWithActions = NotificationContent(
-    title: "New Message",
     body: "You have a new message from John",
     actions: [viewAction, shareAction, dismissAction]
 )
@@ -413,30 +403,25 @@ let notificationWithActions = NotificationContent(
 ```swift
 // Create advanced notification actions
 let replyAction = NotificationAction(
-    title: "Reply",
     identifier: "reply_action",
     options: [.foreground],
     textInput: TextInputAction(
         placeholder: "Type your reply...",
-        submitButtonTitle: "Send"
     )
 )
 
 let likeAction = NotificationAction(
-    title: "👍 Like",
     identifier: "like_action",
     options: [.authenticationRequired]
 )
 
 let bookmarkAction = NotificationAction(
-    title: "🔖 Bookmark",
     identifier: "bookmark_action",
     options: [.foreground]
 )
 
 // Create notification with advanced actions
 let advancedNotification = NotificationContent(
-    title: "New Post",
     body: "Check out this amazing post",
     actions: [replyAction, likeAction, bookmarkAction]
 )
@@ -472,7 +457,6 @@ notificationManager.registerActionCategory(socialCategory)
 ```swift
 // Schedule notification with precise timing
 let preciseNotification = NotificationContent(
-    title: "Meeting Reminder",
     body: "Your meeting starts in 5 minutes",
     category: "meeting"
 )
@@ -496,7 +480,6 @@ try notificationManager.schedule(
 ```swift
 // Create recurring notification
 let dailyReminder = NotificationContent(
-    title: "Daily Reminder",
     body: "Don't forget to check your tasks",
     category: "daily_reminder"
 )
@@ -515,7 +498,6 @@ try notificationManager.scheduleRecurring(
 
 // Schedule weekly recurring notification
 let weeklyReminder = NotificationContent(
-    title: "Weekly Reminder",
     body: "Don't forget to check your tasks",
     category: "weekly_reminder"
 )
@@ -537,7 +519,6 @@ try notificationManager.scheduleRecurring(
 ```swift
 // Create conditional notification
 let conditionalNotification = NotificationContent(
-    title: "Location-Based Alert",
     body: "You're near your favorite restaurant",
     category: "location"
 )
@@ -624,12 +605,10 @@ let abTest = NotificationABTest(
     variants: [
         NotificationVariant(
             id: "variant_a",
-            title: "Simple Title",
             body: "Simple message"
         ),
         NotificationVariant(
             id: "variant_b",
-            title: "Emoji Title 🎉",
             body: "Exciting message with emoji!"
         )
     ],
@@ -664,7 +643,6 @@ let appTheme = NotificationTheme(
 
 // Apply theme to notification
 let themedNotification = NotificationContent(
-    title: "Themed Notification",
     body: "This notification uses custom theming",
     theme: appTheme
 )
@@ -680,7 +658,6 @@ themedNotification.theme.shadowEnabled = true
 ```swift
 // Create brand-specific notification
 let brandNotification = NotificationContent(
-    title: "Brand Notification",
     body: "Consistent with your brand identity",
     brand: BrandConfiguration(
         logoURL: "https://example.com/logo.png",
@@ -700,7 +677,6 @@ brandNotification.brand.animationEnabled = true
 ```swift
 // Create accessible notification
 let accessibleNotification = NotificationContent(
-    title: "Accessible Notification",
     body: "This notification is fully accessible",
     accessibility: AccessibilityConfiguration(
         voiceOverEnabled: true,
@@ -725,7 +701,6 @@ accessibleNotification.accessibility.largeTextScale = 1.2
 ```swift
 // Create simple notification
 let simpleNotification = NotificationContent(
-    title: "Welcome!",
     body: "Thank you for using our app",
     category: "welcome"
 )
@@ -742,12 +717,9 @@ try notificationManager.schedule(
 ```swift
 // Create rich media notification
 let richNotification = RichNotificationContent(
-    title: "New Product Available",
     body: "Check out our latest collection",
     mediaURL: "https://example.com/image.jpg",
     actions: [
-        NotificationAction(title: "View", identifier: "view_action"),
-        NotificationAction(title: "Share", identifier: "share_action")
     ]
 )
 
@@ -763,9 +735,6 @@ try notificationManager.schedule(
 ```swift
 // Create batch of notifications
 let notifications = [
-    NotificationContent(title: "Task 1", body: "Complete task 1"),
-    NotificationContent(title: "Task 2", body: "Complete task 2"),
-    NotificationContent(title: "Task 3", body: "Complete task 3")
 ]
 
 // Schedule batch notifications
@@ -907,11 +876,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
 
-![GitHub Stars](https://img.shields.io/github/stars/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=github&logoColor=white)
-![GitHub Forks](https://img.shields.io/github/forks/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=git&logoColor=white&color=blue&label=Forks)
-![GitHub Issues](https://img.shields.io/github/issues/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=github&logoColor=white&color=red&label=Issues)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=github&logoColor=white&color=green&label=PRs)
-![GitHub License](https://img.shields.io/github/license/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=github&logoColor=white&color=purple&label=License)
 
 </div>
 
@@ -928,7 +892,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 🌟 Stargazers Community
 
-[![Stargazers repo roster for @muhittincamdali/iOS-Notification-Framework](https://reporoster.com/stars/muhittincamdali/iOS-Notification-Framework)](https://github.com/muhittincamdali/iOS-Notification-Framework/stargazers)
 
 **⭐ Star this repository if it helped you!**
 
