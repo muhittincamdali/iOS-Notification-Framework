@@ -1,3 +1,10 @@
+<!-- BADGES:START -->
+[![CI](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/ci.yml/badge.svg)](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/codeql.yml/badge.svg)](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/codeql.yml)
+[![License](https://img.shields.io/github/license/muhittincamdali/iOS-Notification-Framework)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/muhittincamdali/iOS-Notification-Framework?style=flat-square&logo=github)](https://github.com/muhittincamdali/iOS-Notification-Framework/stargazers)
+<!-- BADGES:END -->
+
 # 🔔 iOS Notification Framework
 
 <div align="center">
