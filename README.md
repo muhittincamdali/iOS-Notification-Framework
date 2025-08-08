@@ -942,3 +942,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **💫 Join our amazing community of developers!**
 
 </div> 
+## QuickStart
+
+1. Add the package to your project using Swift Package Manager.
+2. Build: 
+3. Run tests: 
+4. Explore examples in  and .
