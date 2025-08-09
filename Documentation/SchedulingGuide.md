@@ -1,5 +1,55 @@
 # Advanced Scheduling Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [Advanced Scheduling Guide](#advanced-scheduling-guide)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Basic Setup](#basic-setup)
+- [Basic Scheduling](#basic-scheduling)
+  - [Simple Notification](#simple-notification)
+  - [Scheduled Notification](#scheduled-notification)
+- [Precise Timing](#precise-timing)
+  - [Millisecond Precision](#millisecond-precision)
+  - [Custom Precision Levels](#custom-precision-levels)
+- [Recurring Notifications](#recurring-notifications)
+  - [Daily Recurring](#daily-recurring)
+  - [Weekly Recurring](#weekly-recurring)
+  - [Monthly Recurring](#monthly-recurring)
+  - [Custom Recurring Patterns](#custom-recurring-patterns)
+- [Conditional Scheduling](#conditional-scheduling)
+  - [Location-Based Scheduling](#location-based-scheduling)
+  - [Time-Based Conditions](#time-based-conditions)
+  - [App State Conditions](#app-state-conditions)
+  - [Multiple Conditions](#multiple-conditions)
+- [Batch Operations](#batch-operations)
+  - [Batch Scheduling](#batch-scheduling)
+  - [Progressive Batch Scheduling](#progressive-batch-scheduling)
+- [Time Zone Support](#time-zone-support)
+  - [Automatic Time Zone Conversion](#automatic-time-zone-conversion)
+  - [User Time Zone Detection](#user-time-zone-detection)
+- [Best Practices](#best-practices)
+  - [1. Permission Management](#1-permission-management)
+  - [2. Error Handling](#2-error-handling)
+  - [3. Memory Management](#3-memory-management)
+  - [4. Performance Optimization](#4-performance-optimization)
+  - [5. User Experience](#5-user-experience)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+    - [1. Notifications Not Appearing](#1-notifications-not-appearing)
+    - [2. Recurring Notifications Stopping](#2-recurring-notifications-stopping)
+    - [3. Time Zone Issues](#3-time-zone-issues)
+  - [Debug Mode](#debug-mode)
+  - [Performance Monitoring](#performance-monitoring)
+- [Advanced Features](#advanced-features)
+  - [Custom Scheduling Algorithms](#custom-scheduling-algorithms)
+  - [Machine Learning Integration](#machine-learning-integration)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Advanced Scheduling module provides comprehensive notification scheduling capabilities for iOS applications, including precise timing, recurring notifications, conditional scheduling, and batch operations. This guide covers everything you need to know about implementing advanced notification scheduling in your iOS app.

@@ -1,5 +1,46 @@
 # Best Practices
 
+<!-- TOC START -->
+## Table of Contents
+- [Best Practices](#best-practices)
+- [Table of Contents](#table-of-contents)
+- [Permission Management](#permission-management)
+  - [Request Permissions Strategically](#request-permissions-strategically)
+  - [Provide Clear Value Proposition](#provide-clear-value-proposition)
+- [Content Guidelines](#content-guidelines)
+  - [Write Effective Notification Content](#write-effective-notification-content)
+  - [Use Appropriate Categories](#use-appropriate-categories)
+  - [Prioritize Notifications](#prioritize-notifications)
+- [Timing and Scheduling](#timing-and-scheduling)
+  - [Respect User Preferences](#respect-user-preferences)
+  - [Use Smart Scheduling](#use-smart-scheduling)
+- [Performance Optimization](#performance-optimization)
+  - [Batch Operations](#batch-operations)
+  - [Clean Up Regularly](#clean-up-regularly)
+  - [Optimize Memory Usage](#optimize-memory-usage)
+- [User Experience](#user-experience)
+  - [Provide Rich Interactions](#provide-rich-interactions)
+  - [Handle App State](#handle-app-state)
+  - [Provide Feedback](#provide-feedback)
+- [Security Considerations](#security-considerations)
+  - [Validate Content](#validate-content)
+  - [Secure Action Handling](#secure-action-handling)
+  - [Encrypt Sensitive Data](#encrypt-sensitive-data)
+- [Testing Strategies](#testing-strategies)
+  - [Unit Testing](#unit-testing)
+  - [Integration Testing](#integration-testing)
+  - [UI Testing](#ui-testing)
+- [Analytics and Monitoring](#analytics-and-monitoring)
+  - [Track Key Metrics](#track-key-metrics)
+  - [Monitor Performance](#monitor-performance)
+  - [A/B Testing](#ab-testing)
+- [Error Handling](#error-handling)
+  - [Graceful Degradation](#graceful-degradation)
+  - [Retry Logic](#retry-logic)
+- [Conclusion](#conclusion)
+<!-- TOC END -->
+
+
 This guide provides best practices for implementing notifications effectively and efficiently in your iOS application.
 
 ## Table of Contents

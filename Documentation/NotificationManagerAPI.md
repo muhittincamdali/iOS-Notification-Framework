@@ -1,5 +1,30 @@
 # NotificationManager API
 
+<!-- TOC START -->
+## Table of Contents
+- [NotificationManager API](#notificationmanager-api)
+- [Overview](#overview)
+- [Class Definition](#class-definition)
+- [Core Methods](#core-methods)
+  - [Authorization](#authorization)
+  - [Notification Scheduling](#notification-scheduling)
+  - [Notification Management](#notification-management)
+  - [Rich Media Support](#rich-media-support)
+  - [Analytics Integration](#analytics-integration)
+- [Configuration](#configuration)
+  - [NotificationConfiguration](#notificationconfiguration)
+  - [NotificationSettings](#notificationsettings)
+- [Usage Examples](#usage-examples)
+  - [Basic Setup](#basic-setup)
+  - [Schedule Simple Notification](#schedule-simple-notification)
+  - [Schedule Rich Media Notification](#schedule-rich-media-notification)
+- [Error Handling](#error-handling)
+- [Best Practices](#best-practices)
+- [Performance Considerations](#performance-considerations)
+- [Security Notes](#security-notes)
+<!-- TOC END -->
+
+
 ## Overview
 
 The `NotificationManager` class is the core component of the iOS Notification Framework, providing comprehensive notification management capabilities for iOS applications.

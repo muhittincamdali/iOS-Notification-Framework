@@ -1,5 +1,47 @@
 # Getting Started
 
+<!-- TOC START -->
+## Table of Contents
+- [Getting Started](#getting-started)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+  - [Swift Package Manager (Recommended)](#swift-package-manager-recommended)
+  - [Manual Installation](#manual-installation)
+- [Quick Start](#quick-start)
+  - [1. Import the Framework](#1-import-the-framework)
+  - [2. Request Permissions](#2-request-permissions)
+  - [3. Schedule Your First Notification](#3-schedule-your-first-notification)
+- [Basic Usage](#basic-usage)
+  - [Creating Notifications](#creating-notifications)
+  - [Scheduling Notifications](#scheduling-notifications)
+  - [Managing Notifications](#managing-notifications)
+- [Rich Media Notifications](#rich-media-notifications)
+  - [Creating Rich Media Notifications](#creating-rich-media-notifications)
+  - [Supported Media Types](#supported-media-types)
+- [Custom Actions](#custom-actions)
+  - [Registering Action Handlers](#registering-action-handlers)
+  - [Action Options](#action-options)
+- [Advanced Features](#advanced-features)
+  - [Recurring Notifications](#recurring-notifications)
+  - [Analytics and Tracking](#analytics-and-tracking)
+  - [Error Handling](#error-handling)
+- [Best Practices](#best-practices)
+  - [1. Permission Management](#1-permission-management)
+  - [2. Content Guidelines](#2-content-guidelines)
+  - [3. Timing Considerations](#3-timing-considerations)
+  - [4. Performance Optimization](#4-performance-optimization)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+    - [1. Permissions Not Granted](#1-permissions-not-granted)
+    - [2. Notifications Not Appearing](#2-notifications-not-appearing)
+    - [3. Rich Media Not Loading](#3-rich-media-not-loading)
+    - [4. Actions Not Working](#4-actions-not-working)
+  - [Debug Information](#debug-information)
+- [Next Steps](#next-steps)
+- [Support](#support)
+<!-- TOC END -->
+
+
 Welcome to the iOS Notification Framework! This guide will help you get started with implementing rich, interactive notifications in your iOS application.
 
 ## Table of Contents

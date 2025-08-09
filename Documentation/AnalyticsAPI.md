@@ -1,5 +1,43 @@
 # Analytics API
 
+<!-- TOC START -->
+## Table of Contents
+- [Analytics API](#analytics-api)
+- [Overview](#overview)
+- [Core Classes](#core-classes)
+  - [NotificationAnalyticsManager](#notificationanalyticsmanager)
+  - [DeliveryMetrics](#deliverymetrics)
+  - [EngagementMetrics](#engagementmetrics)
+- [Delivery Analytics](#delivery-analytics)
+  - [Track Delivery](#track-delivery)
+  - [Get Delivery Metrics](#get-delivery-metrics)
+  - [Delivery Channel Tracking](#delivery-channel-tracking)
+- [Engagement Analytics](#engagement-analytics)
+  - [Track User Engagement](#track-user-engagement)
+  - [Get Engagement Metrics](#get-engagement-metrics)
+  - [Action Tracking](#action-tracking)
+- [A/B Testing](#ab-testing)
+  - [Create A/B Test](#create-ab-test)
+  - [A/B Test Results](#ab-test-results)
+- [Performance Monitoring](#performance-monitoring)
+  - [Track Performance](#track-performance)
+  - [Performance Alerts](#performance-alerts)
+- [User Segmentation](#user-segmentation)
+  - [Segment Users](#segment-users)
+  - [Segment Analytics](#segment-analytics)
+- [Real-Time Analytics](#real-time-analytics)
+  - [Live Dashboard](#live-dashboard)
+  - [Real-Time Events](#real-time-events)
+- [Privacy and Compliance](#privacy-and-compliance)
+  - [Privacy Mode](#privacy-mode)
+  - [Data Anonymization](#data-anonymization)
+- [Error Handling](#error-handling)
+  - [Analytics Errors](#analytics-errors)
+- [Best Practices](#best-practices)
+  - [Analytics Guidelines](#analytics-guidelines)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Analytics API provides comprehensive tracking and analytics capabilities for notification delivery, user engagement, and performance monitoring.

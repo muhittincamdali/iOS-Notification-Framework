@@ -1,5 +1,52 @@
 # API Reference
 
+<!-- TOC START -->
+## Table of Contents
+- [API Reference](#api-reference)
+- [Table of Contents](#table-of-contents)
+- [NotificationManager](#notificationmanager)
+  - [Properties](#properties)
+  - [Methods](#methods)
+    - [Permission Management](#permission-management)
+    - [Notification Scheduling](#notification-scheduling)
+    - [Notification Management](#notification-management)
+    - [Action Handling](#action-handling)
+    - [Analytics](#analytics)
+- [NotificationContent](#notificationcontent)
+  - [Properties](#properties)
+  - [Initialization](#initialization)
+- [RichNotificationContent](#richnotificationcontent)
+  - [Properties](#properties)
+  - [Initialization](#initialization)
+- [NotificationAction](#notificationaction)
+  - [Properties](#properties)
+  - [Initialization](#initialization)
+- [NotificationPriority](#notificationpriority)
+  - [Properties](#properties)
+- [MediaType](#mediatype)
+  - [Properties](#properties)
+- [RecurringSchedule](#recurringschedule)
+  - [Properties](#properties)
+  - [Initialization](#initialization)
+- [RecurringInterval](#recurringinterval)
+  - [Properties](#properties)
+- [NotificationAnalytics](#notificationanalytics)
+  - [Properties](#properties)
+  - [Methods](#methods)
+- [NotificationError](#notificationerror)
+  - [Properties](#properties)
+  - [Methods](#methods)
+- [AnalyticsEventType](#analyticseventtype)
+  - [Properties](#properties)
+- [Usage Examples](#usage-examples)
+  - [Basic Notification](#basic-notification)
+  - [Rich Media Notification](#rich-media-notification)
+  - [Recurring Notification](#recurring-notification)
+  - [Custom Actions](#custom-actions)
+  - [Analytics](#analytics)
+<!-- TOC END -->
+
+
 This document provides comprehensive API reference for the iOS Notification Framework.
 
 ## Table of Contents

@@ -1,5 +1,53 @@
 # Accessibility Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [Accessibility Guide](#accessibility-guide)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Basic Setup](#basic-setup)
+- [Basic Accessibility](#basic-accessibility)
+  - [Simple Accessible Notification](#simple-accessible-notification)
+  - [VoiceOver Labels](#voiceover-labels)
+  - [Large Text Support](#large-text-support)
+- [Advanced Accessibility](#advanced-accessibility)
+  - [High Contrast Mode](#high-contrast-mode)
+  - [Reduce Motion](#reduce-motion)
+  - [Accessibility Traits](#accessibility-traits)
+- [VoiceOver Support](#voiceover-support)
+  - [VoiceOver Navigation](#voiceover-navigation)
+  - [VoiceOver Actions](#voiceover-actions)
+  - [VoiceOver Announcements](#voiceover-announcements)
+- [Visual Accessibility](#visual-accessibility)
+  - [Color Blindness Support](#color-blindness-support)
+  - [Visual Focus Indicators](#visual-focus-indicators)
+  - [Visual Hierarchy](#visual-hierarchy)
+- [Motor Accessibility](#motor-accessibility)
+  - [Touch Targets](#touch-targets)
+  - [Switch Control Support](#switch-control-support)
+  - [Assistive Touch](#assistive-touch)
+- [Best Practices](#best-practices)
+  - [1. WCAG Compliance](#1-wcag-compliance)
+  - [2. Semantic Content](#2-semantic-content)
+  - [3. Progressive Enhancement](#3-progressive-enhancement)
+  - [4. Testing Accessibility](#4-testing-accessibility)
+  - [5. User Feedback](#5-user-feedback)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+    - [1. VoiceOver Not Working](#1-voiceover-not-working)
+    - [2. Large Text Not Scaling](#2-large-text-not-scaling)
+    - [3. High Contrast Not Applying](#3-high-contrast-not-applying)
+  - [Debug Mode](#debug-mode)
+  - [Performance Monitoring](#performance-monitoring)
+- [Advanced Features](#advanced-features)
+  - [Custom Accessibility Actions](#custom-accessibility-actions)
+  - [Accessibility Analytics](#accessibility-analytics)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Accessibility module provides comprehensive support for making iOS notifications accessible to all users, including those with disabilities. This guide covers everything you need to know about implementing accessibility features that ensure your notifications are usable by everyone.

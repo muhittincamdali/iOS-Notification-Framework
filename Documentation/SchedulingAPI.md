@@ -1,5 +1,43 @@
 # Scheduling API
 
+<!-- TOC START -->
+## Table of Contents
+- [Scheduling API](#scheduling-api)
+- [Overview](#overview)
+- [Core Classes](#core-classes)
+  - [NotificationScheduler](#notificationscheduler)
+  - [RecurringSchedule](#recurringschedule)
+  - [RecurringFrequency](#recurringfrequency)
+  - [NotificationCondition](#notificationcondition)
+- [Basic Scheduling](#basic-scheduling)
+  - [Simple Scheduling](#simple-scheduling)
+  - [Immediate Scheduling](#immediate-scheduling)
+  - [Delayed Scheduling](#delayed-scheduling)
+- [Recurring Scheduling](#recurring-scheduling)
+  - [Daily Recurring](#daily-recurring)
+  - [Weekly Recurring](#weekly-recurring)
+  - [Monthly Recurring](#monthly-recurring)
+  - [Custom Interval Recurring](#custom-interval-recurring)
+- [Conditional Scheduling](#conditional-scheduling)
+  - [Location-Based Scheduling](#location-based-scheduling)
+  - [Time-Based Scheduling](#time-based-scheduling)
+  - [App State-Based Scheduling](#app-state-based-scheduling)
+  - [Multiple Conditions](#multiple-conditions)
+- [Batch Operations](#batch-operations)
+  - [Batch Scheduling](#batch-scheduling)
+  - [Batch with Custom Timing](#batch-with-custom-timing)
+- [Advanced Features](#advanced-features)
+  - [Precise Timing](#precise-timing)
+  - [Time Zone Handling](#time-zone-handling)
+  - [Calendar Integration](#calendar-integration)
+- [Error Handling](#error-handling)
+  - [Scheduling Errors](#scheduling-errors)
+- [Best Practices](#best-practices)
+  - [Scheduling Guidelines](#scheduling-guidelines)
+  - [Performance Considerations](#performance-considerations)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Scheduling API provides advanced notification scheduling capabilities with precise timing, recurring patterns, conditional scheduling, and batch operations for iOS applications.

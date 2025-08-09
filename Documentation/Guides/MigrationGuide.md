@@ -1,5 +1,47 @@
 # Migration Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [Migration Guide](#migration-guide)
+- [Table of Contents](#table-of-contents)
+- [From UserNotifications Framework](#from-usernotifications-framework)
+  - [Basic Migration](#basic-migration)
+  - [Rich Media Migration](#rich-media-migration)
+  - [Action Handling Migration](#action-handling-migration)
+- [From Third-Party Libraries](#from-third-party-libraries)
+  - [From OneSignal](#from-onesignal)
+  - [From Firebase Cloud Messaging](#from-firebase-cloud-messaging)
+- [From Custom Implementations](#from-custom-implementations)
+  - [From Custom Notification Manager](#from-custom-notification-manager)
+  - [From Custom Analytics](#from-custom-analytics)
+- [Breaking Changes](#breaking-changes)
+  - [Version 1.0.0](#version-100)
+    - [Removed Features](#removed-features)
+    - [Changed Method Signatures](#changed-method-signatures)
+    - [Migration Strategy](#migration-strategy)
+  - [Version 0.9.0](#version-090)
+    - [API Changes](#api-changes)
+    - [Migration Strategy](#migration-strategy)
+- [Deprecated Features](#deprecated-features)
+  - [Deprecated in Version 1.0.0](#deprecated-in-version-100)
+    - [`NotificationManager.scheduleWithCompletion`](#notificationmanagerschedulewithcompletion)
+    - [`NotificationManager.getAnalyticsWithCompletion`](#notificationmanagergetanalyticswithcompletion)
+  - [Deprecated in Version 0.9.0](#deprecated-in-version-090)
+    - [`NotificationContent.init(title:body:)`](#notificationcontentinittitlebody)
+- [Migration Checklist](#migration-checklist)
+  - [Before Migration](#before-migration)
+  - [During Migration](#during-migration)
+  - [After Migration](#after-migration)
+- [Troubleshooting Migration Issues](#troubleshooting-migration-issues)
+  - [Common Issues](#common-issues)
+    - [1. Permission Denied Errors](#1-permission-denied-errors)
+    - [2. Notification Not Appearing](#2-notification-not-appearing)
+    - [3. Action Handlers Not Working](#3-action-handlers-not-working)
+  - [Getting Help](#getting-help)
+- [Conclusion](#conclusion)
+<!-- TOC END -->
+
+
 This guide helps you migrate from other notification systems to the iOS Notification Framework.
 
 ## Table of Contents
