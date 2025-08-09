@@ -1,5 +1,53 @@
 # Customization Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [Customization Guide](#customization-guide)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Basic Setup](#basic-setup)
+- [Basic Theming](#basic-theming)
+  - [Simple Theme](#simple-theme)
+  - [Custom Colors](#custom-colors)
+  - [Typography](#typography)
+- [Advanced Theming](#advanced-theming)
+  - [Gradient Themes](#gradient-themes)
+  - [Shadow and Effects](#shadow-and-effects)
+  - [Dark Mode Support](#dark-mode-support)
+- [Brand Integration](#brand-integration)
+  - [Brand Colors](#brand-colors)
+  - [Brand Logo](#brand-logo)
+  - [Brand Consistency](#brand-consistency)
+- [Accessibility](#accessibility)
+  - [VoiceOver Support](#voiceover-support)
+  - [High Contrast Mode](#high-contrast-mode)
+  - [Reduce Motion](#reduce-motion)
+- [Animation](#animation)
+  - [Entrance Animations](#entrance-animations)
+  - [Interactive Animations](#interactive-animations)
+  - [Custom Animations](#custom-animations)
+- [Best Practices](#best-practices)
+  - [1. Color Contrast](#1-color-contrast)
+  - [2. Typography Hierarchy](#2-typography-hierarchy)
+  - [3. Brand Consistency](#3-brand-consistency)
+  - [4. Performance Optimization](#4-performance-optimization)
+  - [5. Accessibility Compliance](#5-accessibility-compliance)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+    - [1. Theme Not Applying](#1-theme-not-applying)
+    - [2. Brand Assets Not Loading](#2-brand-assets-not-loading)
+    - [3. Accessibility Issues](#3-accessibility-issues)
+  - [Debug Mode](#debug-mode)
+  - [Performance Monitoring](#performance-monitoring)
+- [Advanced Features](#advanced-features)
+  - [Dynamic Theming](#dynamic-theming)
+  - [Theme Templates](#theme-templates)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Customization module provides comprehensive theming and branding capabilities for iOS notifications, enabling you to create visually appealing and brand-consistent notification experiences. This guide covers everything you need to know about customizing the appearance and behavior of your notifications.

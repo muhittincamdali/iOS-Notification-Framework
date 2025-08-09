@@ -1,5 +1,41 @@
 # Rich Media API
 
+<!-- TOC START -->
+## Table of Contents
+- [Rich Media API](#rich-media-api)
+- [Overview](#overview)
+- [Core Classes](#core-classes)
+  - [RichNotificationContent](#richnotificationcontent)
+  - [MediaType Enum](#mediatype-enum)
+  - [ImageCompression Enum](#imagecompression-enum)
+  - [VideoQuality Enum](#videoquality-enum)
+  - [AudioFormat Enum](#audioformat-enum)
+- [Image Notifications](#image-notifications)
+  - [Basic Image Notification](#basic-image-notification)
+  - [Advanced Image Configuration](#advanced-image-configuration)
+- [Video Notifications](#video-notifications)
+  - [Basic Video Notification](#basic-video-notification)
+  - [Advanced Video Configuration](#advanced-video-configuration)
+- [Audio Notifications](#audio-notifications)
+  - [Basic Audio Notification](#basic-audio-notification)
+  - [Advanced Audio Configuration](#advanced-audio-configuration)
+- [Media Management](#media-management)
+  - [Media Download and Caching](#media-download-and-caching)
+  - [Media Validation](#media-validation)
+  - [Media Compression](#media-compression)
+- [Error Handling](#error-handling)
+  - [Rich Media Errors](#rich-media-errors)
+  - [Error Handling Example](#error-handling-example)
+- [Best Practices](#best-practices)
+  - [Performance Optimization](#performance-optimization)
+  - [User Experience](#user-experience)
+  - [Security Considerations](#security-considerations)
+- [Integration Examples](#integration-examples)
+  - [With Analytics](#with-analytics)
+  - [With Customization](#with-customization)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Rich Media API provides comprehensive support for displaying images, videos, and audio content in iOS notifications, enabling rich and engaging user experiences.

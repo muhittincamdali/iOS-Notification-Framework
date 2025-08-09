@@ -1,5 +1,41 @@
 # Advanced Features
 
+<!-- TOC START -->
+## Table of Contents
+- [Advanced Features](#advanced-features)
+- [Table of Contents](#table-of-contents)
+- [Recurring Notifications](#recurring-notifications)
+  - [Basic Recurring Notifications](#basic-recurring-notifications)
+  - [Weekly Notifications](#weekly-notifications)
+  - [Custom Intervals](#custom-intervals)
+- [Conditional Scheduling](#conditional-scheduling)
+  - [User Behavior Based Scheduling](#user-behavior-based-scheduling)
+  - [App State Based Scheduling](#app-state-based-scheduling)
+  - [Location Based Scheduling](#location-based-scheduling)
+- [Batch Operations](#batch-operations)
+  - [Scheduling Multiple Notifications](#scheduling-multiple-notifications)
+  - [Bulk Notification Management](#bulk-notification-management)
+- [Custom Categories](#custom-categories)
+  - [Creating Custom Categories](#creating-custom-categories)
+  - [Category-Specific Handling](#category-specific-handling)
+- [Analytics Integration](#analytics-integration)
+  - [Custom Event Tracking](#custom-event-tracking)
+  - [Performance Monitoring](#performance-monitoring)
+  - [A/B Testing](#ab-testing)
+- [Performance Optimization](#performance-optimization)
+  - [Memory Management](#memory-management)
+  - [Battery Optimization](#battery-optimization)
+- [Security Features](#security-features)
+  - [Content Validation](#content-validation)
+  - [Secure Action Handling](#secure-action-handling)
+  - [Data Encryption](#data-encryption)
+- [Localization](#localization)
+  - [Multi-Language Support](#multi-language-support)
+  - [Dynamic Localization](#dynamic-localization)
+- [Conclusion](#conclusion)
+<!-- TOC END -->
+
+
 This guide covers advanced features and capabilities of the iOS Notification Framework.
 
 ## Table of Contents

@@ -1,5 +1,53 @@
 # Analytics Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [Analytics Guide](#analytics-guide)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Basic Setup](#basic-setup)
+- [Basic Analytics](#basic-analytics)
+  - [Delivery Tracking](#delivery-tracking)
+  - [Engagement Tracking](#engagement-tracking)
+  - [Basic Metrics](#basic-metrics)
+- [Advanced Analytics](#advanced-analytics)
+  - [Custom Events](#custom-events)
+  - [User Segmentation](#user-segmentation)
+  - [Cohort Analysis](#cohort-analysis)
+- [A/B Testing](#ab-testing)
+  - [Basic A/B Test](#basic-ab-test)
+  - [Advanced A/B Testing](#advanced-ab-testing)
+  - [Multivariate Testing](#multivariate-testing)
+- [Performance Monitoring](#performance-monitoring)
+  - [Real-time Monitoring](#real-time-monitoring)
+  - [Performance Alerts](#performance-alerts)
+  - [Performance Dashboards](#performance-dashboards)
+- [User Engagement](#user-engagement)
+  - [Engagement Scoring](#engagement-scoring)
+  - [Engagement Patterns](#engagement-patterns)
+  - [User Journey Tracking](#user-journey-tracking)
+- [Best Practices](#best-practices)
+  - [1. Privacy Compliance](#1-privacy-compliance)
+  - [2. Data Quality](#2-data-quality)
+  - [3. Performance Optimization](#3-performance-optimization)
+  - [4. Error Handling](#4-error-handling)
+  - [5. Data Export](#5-data-export)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+    - [1. Data Not Tracking](#1-data-not-tracking)
+    - [2. Performance Issues](#2-performance-issues)
+    - [3. Data Accuracy](#3-data-accuracy)
+  - [Debug Mode](#debug-mode)
+  - [Performance Monitoring](#performance-monitoring)
+- [Advanced Features](#advanced-features)
+  - [Machine Learning Integration](#machine-learning-integration)
+  - [Custom Analytics Providers](#custom-analytics-providers)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Analytics module provides comprehensive tracking and reporting capabilities for iOS notifications, enabling you to measure performance, user engagement, and optimize your notification strategy. This guide covers everything you need to know about implementing analytics in your notification system.

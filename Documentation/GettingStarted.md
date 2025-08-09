@@ -1,5 +1,56 @@
 # Getting Started Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [Getting Started Guide](#getting-started-guide)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Prerequisites](#prerequisites)
+  - [System Requirements](#system-requirements)
+  - [Development Environment](#development-environment)
+  - [Knowledge Requirements](#knowledge-requirements)
+- [Installation](#installation)
+  - [Swift Package Manager (Recommended)](#swift-package-manager-recommended)
+  - [Manual Installation](#manual-installation)
+  - [CocoaPods Installation](#cocoapods-installation)
+- [Quick Start](#quick-start)
+  - [1. Import the Framework](#1-import-the-framework)
+  - [2. Initialize the Manager](#2-initialize-the-manager)
+  - [3. Request Permissions](#3-request-permissions)
+  - [4. Create Your First Notification](#4-create-your-first-notification)
+- [Basic Configuration](#basic-configuration)
+  - [Notification Categories](#notification-categories)
+  - [Notification Settings](#notification-settings)
+  - [Rich Media Configuration](#rich-media-configuration)
+- [First Notification](#first-notification)
+  - [Simple Text Notification](#simple-text-notification)
+  - [Rich Media Notification](#rich-media-notification)
+  - [Interactive Notification](#interactive-notification)
+- [Advanced Features](#advanced-features)
+  - [Scheduled Notifications](#scheduled-notifications)
+  - [Recurring Notifications](#recurring-notifications)
+  - [Batch Notifications](#batch-notifications)
+  - [Analytics Integration](#analytics-integration)
+- [Best Practices](#best-practices)
+  - [1. Permission Management](#1-permission-management)
+  - [2. Error Handling](#2-error-handling)
+  - [3. Memory Management](#3-memory-management)
+  - [4. Performance Optimization](#4-performance-optimization)
+  - [5. User Experience](#5-user-experience)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+    - [1. Notifications Not Appearing](#1-notifications-not-appearing)
+    - [2. Permissions Denied](#2-permissions-denied)
+    - [3. Rich Media Not Loading](#3-rich-media-not-loading)
+  - [Debug Mode](#debug-mode)
+  - [Performance Monitoring](#performance-monitoring)
+- [Next Steps](#next-steps)
+  - [Explore Advanced Features](#explore-advanced-features)
+  - [Read Additional Guides](#read-additional-guides)
+  - [Join the Community](#join-the-community)
+<!-- TOC END -->
+
+
 ## Overview
 
 Welcome to the iOS Notification Framework! This comprehensive guide will help you get started with implementing advanced notifications in your iOS application. Whether you're a beginner or an experienced developer, this guide covers everything you need to know to create engaging, interactive notifications.

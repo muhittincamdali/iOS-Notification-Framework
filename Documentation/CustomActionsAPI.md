@@ -1,5 +1,38 @@
 # Custom Actions API
 
+<!-- TOC START -->
+## Table of Contents
+- [Custom Actions API](#custom-actions-api)
+- [Overview](#overview)
+- [Core Classes](#core-classes)
+  - [NotificationAction](#notificationaction)
+  - [TextInputAction](#textinputaction)
+  - [NotificationActionCategory](#notificationactioncategory)
+- [Action Types](#action-types)
+  - [Basic Actions](#basic-actions)
+  - [Text Input Actions](#text-input-actions)
+  - [Authentication Actions](#authentication-actions)
+  - [Custom Styled Actions](#custom-styled-actions)
+- [Action Categories](#action-categories)
+  - [Message Category](#message-category)
+  - [Social Category](#social-category)
+  - [Reminder Category](#reminder-category)
+- [Action Handling](#action-handling)
+  - [Action Response Handling](#action-response-handling)
+  - [Action Analytics](#action-analytics)
+- [Advanced Features](#advanced-features)
+  - [Dynamic Actions](#dynamic-actions)
+  - [Action Chaining](#action-chaining)
+  - [Action Templates](#action-templates)
+- [Error Handling](#error-handling)
+  - [Action Errors](#action-errors)
+- [Best Practices](#best-practices)
+  - [Action Design](#action-design)
+  - [Performance Considerations](#performance-considerations)
+  - [Security Notes](#security-notes)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Custom Actions API provides comprehensive support for creating interactive notification actions, including buttons, text input, and custom UI components that enhance user engagement with notifications.

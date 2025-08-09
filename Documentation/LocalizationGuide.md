@@ -1,5 +1,54 @@
 # Localization Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [Localization Guide](#localization-guide)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Basic Setup](#basic-setup)
+- [Basic Localization](#basic-localization)
+  - [Simple Localized Notification](#simple-localized-notification)
+  - [Localization Files](#localization-files)
+  - [Language Detection](#language-detection)
+  - [Manual Language Selection](#manual-language-selection)
+- [Advanced Localization](#advanced-localization)
+  - [Pluralization Support](#pluralization-support)
+  - [String Formatting](#string-formatting)
+  - [Localization Files with Formatting](#localization-files-with-formatting)
+  - [Context-Aware Localization](#context-aware-localization)
+- [Dynamic Localization](#dynamic-localization)
+  - [Runtime Language Switching](#runtime-language-switching)
+  - [Language Preferences](#language-preferences)
+  - [Dynamic Content Loading](#dynamic-content-loading)
+- [Cultural Adaptation](#cultural-adaptation)
+  - [Date and Time Formatting](#date-and-time-formatting)
+  - [Number Formatting](#number-formatting)
+  - [Cultural Sensitivity](#cultural-sensitivity)
+- [RTL Support](#rtl-support)
+  - [Right-to-Left Languages](#right-to-left-languages)
+  - [RTL Localization Files](#rtl-localization-files)
+  - [Mixed RTL and LTR](#mixed-rtl-and-ltr)
+- [Best Practices](#best-practices)
+  - [1. Language Organization](#1-language-organization)
+  - [2. Translation Quality](#2-translation-quality)
+  - [3. Performance Optimization](#3-performance-optimization)
+  - [4. Accessibility](#4-accessibility)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+    - [1. Missing Translations](#1-missing-translations)
+    - [2. Incorrect Language Detection](#2-incorrect-language-detection)
+    - [3. Formatting Issues](#3-formatting-issues)
+  - [Debug Mode](#debug-mode)
+  - [Performance Monitoring](#performance-monitoring)
+- [Advanced Features](#advanced-features)
+  - [Machine Translation Integration](#machine-translation-integration)
+  - [Cultural Intelligence](#cultural-intelligence)
+<!-- TOC END -->
+
+
 ## Overview
 
 The Localization module provides comprehensive multi-language support for iOS notifications, enabling your app to reach global audiences with properly localized content. This guide covers everything you need to know about implementing internationalization and localization in your notification system.
