@@ -225,4 +225,60 @@ For detailed migration instructions between versions, see the [Migration Guide](
 
 - **Documentation**: [Full Documentation](Documentation/)
 - **Issues**: [GitHub Issues](https://github.com/muhittincamdali/iOS-Notification-Framework/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/muhittincamdali/iOS-Notification-Framework/discussions) 
+- **Discussions**: [GitHub Discussions](https://github.com/muhittincamdali/iOS-Notification-Framework/discussions) # iOS-Notification-Framework - Update 1
+# iOS-Notification-Framework - Update 2
+# iOS-Notification-Framework - Update 3
+# iOS-Notification-Framework - Update 4
+# iOS-Notification-Framework - Update 5
+# iOS-Notification-Framework - Update 6
+# iOS-Notification-Framework - Update 7
+# iOS-Notification-Framework - Update 8
+# iOS-Notification-Framework - Update 9
+# iOS-Notification-Framework - Update 10
+# iOS-Notification-Framework - Update 11
+# iOS-Notification-Framework - Update 12
+# iOS-Notification-Framework - Update 13
+# iOS-Notification-Framework - Update 14
+# iOS-Notification-Framework - Update 15
+# iOS-Notification-Framework - Update 16
+# iOS-Notification-Framework - Update 17
+# iOS-Notification-Framework - Update 18
+# iOS-Notification-Framework - Update 19
+# iOS-Notification-Framework - Update 20
+# iOS-Notification-Framework - Update 21
+# iOS-Notification-Framework - Update 22
+# iOS-Notification-Framework - Update 23
+# iOS-Notification-Framework - Update 24
+# iOS-Notification-Framework - Update 25
+# iOS-Notification-Framework - Update 26
+# iOS-Notification-Framework - Update 27
+# iOS-Notification-Framework - Update 28
+# iOS-Notification-Framework - Update 29
+# iOS-Notification-Framework - Update 30
+# iOS-Notification-Framework - Update 31
+# iOS-Notification-Framework - Update 32
+# iOS-Notification-Framework - Update 33
+# iOS-Notification-Framework - Update 34
+# iOS-Notification-Framework - Update 35
+# iOS-Notification-Framework - Update 36
+# iOS-Notification-Framework - Update 37
+# iOS-Notification-Framework - Update 38
+# iOS-Notification-Framework - Update 39
+# iOS-Notification-Framework - Update 40
+# iOS-Notification-Framework - Update 41
+# iOS-Notification-Framework - Update 42
+# iOS-Notification-Framework - Update 43
+# iOS-Notification-Framework - Update 44
+# iOS-Notification-Framework - Update 45
+# iOS-Notification-Framework - Update 46
+# iOS-Notification-Framework - Update 47
+# iOS-Notification-Framework - Update 48
+# iOS-Notification-Framework - Update 49
+# iOS-Notification-Framework - Update 50
+# iOS-Notification-Framework - Update 51
+# iOS-Notification-Framework - Update 52
+# iOS-Notification-Framework - Update 53
+# iOS-Notification-Framework - Update 54
+# iOS-Notification-Framework - Update 55
+# iOS-Notification-Framework - Update 56
+# iOS-Notification-Framework - Update 57
