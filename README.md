@@ -1,307 +1,71 @@
-<!-- BADGES:START -->
-[![CI](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/ci.yml/badge.svg)](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/codeql.yml/badge.svg)](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/codeql.yml)
-[![License](https://img.shields.io/github/license/muhittincamdali/iOS-Notification-Framework)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/muhittincamdali/iOS-Notification-Framework?style=flat-square&logo=github)](https://github.com/muhittincamdali/iOS-Notification-Framework/stargazers)
-<!-- BADGES:END -->
-
-# 🔔 iOS Notification Framework
-
-
+```
+███╗   ██╗ ██████╗ ████████╗██╗███████╗██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██║██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+██╔██╗ ██║██║   ██║   ██║   ██║█████╗  ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║
+██║╚██╗██║██║   ██║   ██║   ██║██╔══╝  ██║██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
+██║ ╚████║╚██████╔╝   ██║   ██║██║     ██║╚██████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
+╚═╝  ╚═══╝ ╚═════╝    ╚═╝   ╚═╝╚═╝     ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+```
 
 <div align="center">
 
-![Swift](https://img.shields.io/badge/Swift-5.9+-FA7343?style=for-the-badge&logo=swift&logoColor=white)
-![iOS](https://img.shields.io/badge/iOS-15.0+-000000?style=for-the-badge&logo=ios&logoColor=white)
-![Xcode](https://img.shields.io/badge/Xcode-15.0+-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)
-![Notifications](https://img.shields.io/badge/Notifications-Rich-FF9800?style=for-the-badge)
-![Media](https://img.shields.io/badge/Media-Support-9C27B0?style=for-the-badge)
-![Actions](https://img.shields.io/badge/Actions-Custom-4CAF50?style=for-the-badge)
-![Scheduling](https://img.shields.io/badge/Scheduling-Advanced-2196F3?style=for-the-badge)
-![Analytics](https://img.shields.io/badge/Analytics-Tracking-607D8B?style=for-the-badge)
-![Customization](https://img.shields.io/badge/Customization-Themed-795548?style=for-the-badge)
-![Accessibility](https://img.shields.io/badge/Accessibility-Support-00BCD4?style=for-the-badge)
-![Localization](https://img.shields.io/badge/Localization-Multi%20Language-8BC34A?style=for-the-badge)
-![Performance](https://img.shields.io/badge/Performance-Optimized-00BCD4?style=for-the-badge)
-![Architecture](https://img.shields.io/badge/Architecture-Clean-673AB7?style=for-the-badge)
-![Swift Package Manager](https://img.shields.io/badge/SPM-Dependencies-FF6B35?style=for-the-badge)
-![CocoaPods](https://img.shields.io/badge/CocoaPods-Supported-E91E63?style=for-the-badge)
+[![Swift](https://img.shields.io/badge/Swift-5.9+-F05138?style=flat-square&logo=swift&logoColor=white)](https://swift.org)
+[![iOS](https://img.shields.io/badge/iOS-15.0+-000000?style=flat-square&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
+[![SPM](https://img.shields.io/badge/SPM-Compatible-brightgreen?style=flat-square&logo=swift)](https://swift.org/package-manager/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+[![CI](https://github.com/muhittincamdali/iOS-Notification-Framework/actions/workflows/ci.yml/badge.svg)](https://github.com/muhittincamdali/iOS-Notification-Framework/actions)
 
-**🏆 Professional iOS Notification Framework**
+**A comprehensive iOS notification framework supporting local, remote, rich media, and interactive notifications.**
 
-**🔔 Advanced Notification System**
-
-**📱 Rich Media & Custom Actions**
+[Features](#features) • [Installation](#installation) • [Quick Start](#quick-start) • [Documentation](#documentation)
 
 </div>
 
 ---
 
-## 📋 Table of Contents
+## Features
 
-<div align="center">
-
-### 🚀 Getting Started
-- [Overview](#-overview)
-- [Quick Start](#-quick-start)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
-
-### ✨ Core Features
-- [Key Features](#-key-features)
-- [Architecture](#-architecture)
-- [Usage Examples](#-usage-examples)
-- [API Reference](#-api-reference)
-
-### 🔔 Notification Types
-- [Rich Media Notifications](#-rich-media-notifications)
-- [Custom Notification Actions](#-custom-notification-actions)
-- [Advanced Scheduling](#-advanced-scheduling)
-- [Analytics & Tracking](#-analytics--tracking)
-
-### 🎨 Customization
-- [Customization](#-customization)
-- [Theming](#-theming)
-- [Brand Integration](#-brand-integration)
-- [Accessibility](#-accessibility)
-
-### 📚 Documentation
-- [Documentation](#-documentation)
-- [Examples](#-examples)
-- [Tutorials](#-tutorials)
-- [Best Practices](#-best-practices)
-
-### 🤝 Community
-- [Contributing](#-contributing)
-- [Acknowledgments](#-acknowledgments)
-- [License](#-license)
-- [Support](#-support)
-
-</div>
+| Type | Description | Capabilities |
+|:----:|-------------|--------------|
+| 🔔 **Local** | Schedule notifications locally | Time-based, location-based, calendar triggers |
+| 📡 **Remote** | Push via APNs/Firebase | Background delivery, silent push, priority levels |
+| 🎨 **Rich Media** | Attach images, video, audio | Thumbnails, GIFs, custom attachments |
+| ⚡ **Actions** | Interactive buttons & input | Deep linking, text input, custom categories |
 
 ---
 
-## 🚀 Overview
+## How Push Notifications Work
 
-<div align="center">
-
-**🏆 World-Class iOS Notification Framework**
-
-**⚡ Professional Quality Standards**
-
-**🎯 Enterprise-Grade Solution**
-
-</div>
-
-**iOS Notification Framework** is the most advanced, comprehensive, and professional notification system framework for iOS applications. Built with clean architecture principles and SOLID design patterns, this enterprise-grade framework provides unparalleled notification capabilities for modern iOS development.
-
-### 🎯 What Makes This Framework Special?
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
-
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; color: white;">
-
-#### 🏗️ **Clean Architecture**
-- Complete separation of concerns
-- Domain, Data, Presentation layers
-- Dependency inversion principle
-- Scalable and maintainable code
-
-</div>
-
-<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 20px; border-radius: 10px; color: white;">
-
-#### 🧪 **SOLID Principles**
-- Single Responsibility
-- Open/Closed principle
-- Liskov Substitution
-- Interface Segregation
-- Dependency Inversion
-
-</div>
-
-<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 20px; border-radius: 10px; color: white;">
-
-#### 🔔 **Rich Media Support**
-- Images, videos, and audio
-- Custom attachments
-- Progressive loading
-- Intelligent caching
-
-</div>
-
-</div>
-
-### 🎯 Key Benefits
-
-| **Benefit** | **Description** | **Impact** |
-|-------------|----------------|------------|
-| 🏗️ **Clean Architecture** | Complete layer separation | Maintainable codebase |
-| 🧪 **SOLID Principles** | Design best practices | Scalable architecture |
-| 🔔 **Rich Media Support** | Images, videos, audio | Engaging notifications |
-| ⚡ **Performance Optimized** | <1.3s launch time | Fast user experience |
-| 🎨 **Customization** | Themed notifications | Brand consistency |
-| 📊 **Analytics** | Comprehensive tracking | Data-driven insights |
+```mermaid
+sequenceDiagram
+    participant App as iOS App
+    participant APNs as Apple Push<br/>Notification Service
+    participant Server as Your Server
+    participant Firebase as Firebase<br/>(Optional)
+    
+    App->>App: Request permission
+    App->>APNs: Register for remote notifications
+    APNs-->>App: Device token
+    App->>Server: Send device token
+    
+    Note over Server,Firebase: When you need to notify...
+    
+    alt Using APNs directly
+        Server->>APNs: Send notification payload
+    else Using Firebase
+        Server->>Firebase: Send notification
+        Firebase->>APNs: Forward to APNs
+    end
+    
+    APNs->>App: Deliver notification
+    App->>App: Handle & display
+```
 
 ---
 
-## ✨ Key Features
+## Installation
 
-### 🏗️ Architecture Features
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
-
-<div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
-
-#### 🏢 **Clean Architecture Implementation**
-- Complete layer separation with proper dependency flow
-- Domain, Data, Presentation, Infrastructure layers
-- Dependency injection with lifecycle management
-- Repository pattern with multiple data sources
-
-</div>
-
-<div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #ff9800;">
-
-#### 🧪 **SOLID Principles Applied**
-- Single Responsibility Principle
-- Open/Closed Principle
-- Liskov Substitution Principle
-- Interface Segregation Principle
-- Dependency Inversion Principle
-
-</div>
-
-<div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
-
-#### 🔔 **Rich Media Support**
-- High-quality image notifications
-- Video content with thumbnails
-- Audio notifications with controls
-- Custom media attachments
-- Progressive loading system
-
-</div>
-
-</div>
-
-### 🔔 Notification Features
-
-#### **Rich Media Notifications**
-- **Image Support**: High-quality images with compression
-- **Video Support**: MP4, MOV with custom quality settings
-- **Audio Support**: MP3, AAC, WAV with volume control
-- **GIF Support**: Animated GIFs with optimization
-- **Custom Attachments**: Any file type with validation
-
-#### **Custom Actions**
-- **Interactive Buttons**: Custom action buttons
-- **Text Input**: User input in notifications
-- **Deep Linking**: Seamless app navigation
-- **Action Categories**: Organized action groups
-- **Contextual Actions**: Dynamic action responses
-
-#### **Advanced Scheduling**
-- **Precise Timing**: Millisecond accuracy
-- **Recurring Notifications**: Daily, weekly, custom patterns
-- **Conditional Scheduling**: Location, time, app state
-- **Batch Operations**: Multiple notifications
-- **Time Zone Support**: Automatic conversion
-
-#### **Analytics & Tracking**
-- **Delivery Analytics**: Track delivery rates
-- **Engagement Metrics**: User interaction tracking
-- **Performance Monitoring**: Real-time analytics
-- **A/B Testing**: Notification strategy testing
-- **Conversion Tracking**: Action conversion rates
-
----
-
-## ⚡ Quick Start
-
-<div align="center">
-
-**🚀 Get started in 5 minutes!**
-
-</div>
-
-### 📋 Requirements
-
-| **Component** | **Version** | **Description** |
-|---------------|-------------|-----------------|
-| 🍎 **macOS** | 12.0+ | Monterey or later |
-| 📱 **iOS** | 15.0+ | Minimum deployment target |
-| 🛠️ **Xcode** | 15.0+ | Latest stable version |
-| ⚡ **Swift** | 5.9+ | Latest Swift version |
-| 📦 **CocoaPods** | Optional | For dependency management |
-
-### 🚀 5-Minute Setup
-
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; color: white; margin: 20px 0;">
-
-#### 1️⃣ **Clone the Repository**
-```bash
-git clone https://github.com/muhittincamdali/iOS-Notification-Framework.git
-cd iOS-Notification-Framework
-```
-
-#### 2️⃣ **Install Dependencies**
-```bash
-swift package resolve
-```
-
-#### 3️⃣ **Open in Xcode**
-```bash
-open Package.swift
-```
-
-#### 4️⃣ **Run the Project**
-- Select your target device or simulator
-- Press **⌘+R** to build and run
-- The app should launch successfully
-
-</div>
-
-### 🎯 Quick Start Guide
-
-```swift
-// 1. Import the framework
-import NotificationFramework
-
-// 2. Create configuration
-let config = NotificationConfiguration()
-config.enableRichMedia = true
-config.enableCustomActions = true
-config.enableAnalytics = true
-
-// 3. Initialize framework
-let notificationManager = NotificationManager.shared
-
-// 4. Request permissions
-notificationManager.requestPermissions { granted in
-    if granted {
-        print("✅ Notification permissions granted")
-    } else {
-        print("❌ Notification permissions denied")
-    }
-}
-
-// 5. Create and schedule notification
-let notification = NotificationContent(
-    title: "Welcome!",
-    body: "Thank you for using our app",
-    category: "welcome"
-)
-
-try notificationManager.schedule(
-    notification,
-    at: Date().addingTimeInterval(60)
-)
-```
-
-### 📦 Swift Package Manager
-
-Add the framework to your project:
+### Swift Package Manager
 
 ```swift
 dependencies: [
@@ -309,642 +73,262 @@ dependencies: [
 ]
 ```
 
----
-
-## 🔔 Rich Media Notifications
-
-### Image Notifications
-
-```swift
-// Create image notification
-let imageNotification = RichNotificationContent(
-    title: "New Product Available",
-    body: "Check out our latest collection",
-    mediaType: .image,
-    mediaURL: URL(string: "https://example.com/product.jpg")
-)
-
-// Configure image settings
-imageNotification.imageCompression = .high
-imageNotification.cachePolicy = .memoryAndDisk
-imageNotification.progressiveLoading = true
-
-// Schedule image notification
-try notificationManager.schedule(
-    imageNotification,
-    at: Date().addingTimeInterval(60)
-)
-```
-
-### Video Notifications
-
-```swift
-// Create video notification
-let videoNotification = RichNotificationContent(
-    title: "Product Demo",
-    body: "Watch how to use our new feature",
-    mediaType: .video,
-    mediaURL: URL(string: "https://example.com/demo.mp4"),
-    thumbnailURL: URL(string: "https://example.com/thumbnail.jpg")
-)
-
-// Configure video settings
-videoNotification.videoQuality = .medium
-videoNotification.autoPlay = false
-videoNotification.controlsEnabled = true
-
-// Schedule video notification
-try notificationManager.schedule(
-    videoNotification,
-    at: Date().addingTimeInterval(120)
-)
-```
-
-### Audio Notifications
-
-```swift
-// Create audio notification
-let audioNotification = RichNotificationContent(
-    title: "Voice Message",
-    body: "You have a new voice message",
-    mediaType: .audio,
-    mediaURL: URL(string: "https://example.com/message.mp3")
-)
-
-// Configure audio settings
-audioNotification.audioFormat = .mp3
-audioNotification.autoPlay = true
-audioNotification.volume = 0.8
-
-// Schedule audio notification
-try notificationManager.schedule(
-    audioNotification,
-    at: Date().addingTimeInterval(30)
-)
-```
+Or add via Xcode: **File → Add Package Dependencies** and paste the repository URL.
 
 ---
 
-## ⚡ Custom Notification Actions
+## Quick Start
 
-### Basic Actions
+### 1. Request Permission
 
 ```swift
-// Create basic notification actions
-let viewAction = NotificationAction(
-    title: "View",
-    identifier: "view_action",
-    options: [.foreground]
-)
+import NotificationFramework
 
-let shareAction = NotificationAction(
-    title: "Share",
-    identifier: "share_action",
-    options: [.foreground]
-)
+let manager = NotificationManager.shared
 
-let dismissAction = NotificationAction(
-    title: "Dismiss",
-    identifier: "dismiss_action",
-    options: [.destructive]
-)
-
-// Create notification with actions
-let notificationWithActions = NotificationContent(
-    title: "New Message",
-    body: "You have a new message from John",
-    actions: [viewAction, shareAction, dismissAction]
-)
+manager.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+    if granted {
+        print("Notifications enabled")
+    }
+}
 ```
 
-### Advanced Actions
+### 2. Schedule a Local Notification
 
 ```swift
-// Create advanced notification actions
-let replyAction = NotificationAction(
-    title: "Reply",
-    identifier: "reply_action",
-    options: [.foreground],
-    textInput: TextInputAction(
-        placeholder: "Type your reply...",
-        submitButtonTitle: "Send"
-    )
-)
-
-let likeAction = NotificationAction(
-    title: "👍 Like",
-    identifier: "like_action",
-    options: [.authenticationRequired]
-)
-
-let bookmarkAction = NotificationAction(
-    title: "🔖 Bookmark",
-    identifier: "bookmark_action",
-    options: [.foreground]
-)
-
-// Create notification with advanced actions
-let advancedNotification = NotificationContent(
-    title: "New Post",
-    body: "Check out this amazing post",
-    actions: [replyAction, likeAction, bookmarkAction]
-)
-```
-
-### Action Categories
-
-```swift
-// Create action categories
-let messageCategory = NotificationActionCategory(
-    identifier: "message_category",
-    actions: [viewAction, replyAction, shareAction],
-    options: [.customDismissAction]
-)
-
-let socialCategory = NotificationActionCategory(
-    identifier: "social_category",
-    actions: [likeAction, shareAction, bookmarkAction],
-    options: [.allowInCarPlay]
-)
-
-// Register action categories
-notificationManager.registerActionCategory(messageCategory)
-notificationManager.registerActionCategory(socialCategory)
-```
-
----
-
-## 📅 Advanced Scheduling
-
-### Precise Scheduling
-
-```swift
-// Schedule notification with precise timing
-let preciseNotification = NotificationContent(
+// Simple time-based notification
+let content = NotificationContent(
     title: "Meeting Reminder",
-    body: "Your meeting starts in 5 minutes",
-    category: "meeting"
+    body: "Team standup in 5 minutes",
+    sound: .default
 )
 
-// Schedule for specific date and time
-let meetingDate = Calendar.current.date(
-    byAdding: .minute,
-    value: 5,
-    to: Date()
-)!
-
-try notificationManager.schedule(
-    preciseNotification,
-    at: meetingDate,
-    withPrecision: .millisecond
-)
+manager.schedule(content, after: 300) // 5 minutes
 ```
 
-### Recurring Notifications
+### 3. Rich Media Notification
 
 ```swift
-// Create recurring notification
-let dailyReminder = NotificationContent(
-    title: "Daily Reminder",
-    body: "Don't forget to check your tasks",
-    category: "daily_reminder"
+// Notification with image attachment
+let richContent = RichNotificationContent(
+    title: "New Photo",
+    body: "Sarah shared a photo with you",
+    imageURL: URL(string: "https://example.com/photo.jpg")!
 )
 
-// Schedule daily recurring notification
-let recurringSchedule = RecurringSchedule(
-    frequency: .daily,
-    time: DateComponents(hour: 9, minute: 0),
-    timeZone: TimeZone.current
-)
-
-try notificationManager.scheduleRecurring(
-    dailyReminder,
-    with: recurringSchedule
-)
-
-// Schedule weekly recurring notification
-let weeklyReminder = NotificationContent(
-    title: "Weekly Reminder",
-    body: "Don't forget to check your tasks",
-    category: "weekly_reminder"
-)
-
-let weeklySchedule = RecurringSchedule(
-    frequency: .weekly,
-    weekday: 1, // Monday
-    time: DateComponents(hour: 10, minute: 0)
-)
-
-try notificationManager.scheduleRecurring(
-    weeklyReminder,
-    with: weeklySchedule
-)
+richContent.category = "PHOTO_SHARE"
+manager.schedule(richContent, at: Date().addingTimeInterval(60))
 ```
 
-### Conditional Scheduling
+### 4. Interactive Actions
 
 ```swift
-// Create conditional notification
-let conditionalNotification = NotificationContent(
-    title: "Location-Based Alert",
-    body: "You're near your favorite restaurant",
-    category: "location"
+// Define actions
+let likeAction = NotificationAction(
+    identifier: "LIKE",
+    title: "👍 Like",
+    options: []
 )
 
-// Define conditions
-let locationCondition = NotificationCondition.location(
-    latitude: 40.7128,
-    longitude: -74.0060,
-    radius: 1000 // 1km
+let replyAction = NotificationAction(
+    identifier: "REPLY",
+    title: "Reply",
+    options: [.foreground],
+    textInput: TextInputConfiguration(placeholder: "Type a message...")
 )
 
-let timeCondition = NotificationCondition.time(
-    start: DateComponents(hour: 9, minute: 0),
-    end: DateComponents(hour: 18, minute: 0)
+// Create category
+let category = NotificationCategory(
+    identifier: "MESSAGE",
+    actions: [likeAction, replyAction]
 )
 
-let appStateCondition = NotificationCondition.appState(
-    when: .background,
-    after: 300 // 5 minutes
-)
+manager.registerCategories([category])
 
-// Schedule with conditions
-try notificationManager.scheduleConditional(
-    conditionalNotification,
-    conditions: [locationCondition, timeCondition, appStateCondition]
+// Use in notification
+let content = NotificationContent(
+    title: "New Message",
+    body: "Hey, are you free tonight?",
+    categoryIdentifier: "MESSAGE"
 )
 ```
 
 ---
 
-## 📊 Analytics & Tracking
+## APNs Setup
 
-### Delivery Analytics
+### 1. Enable Push Notifications
 
-```swift
-// Initialize analytics manager
-let analyticsManager = NotificationAnalyticsManager()
+1. Open your project in Xcode
+2. Go to **Signing & Capabilities**
+3. Click **+ Capability** → **Push Notifications**
+4. Add **Background Modes** → Check **Remote notifications**
 
-// Track notification delivery
-analyticsManager.trackDelivery(
-    notificationID: "notification_123",
-    deliveryTime: Date(),
-    deliveryChannel: .push
-)
+### 2. Create APNs Key
 
-// Track delivery metrics
-analyticsManager.trackDeliveryMetrics { metrics in
-    print("📊 Delivery Metrics:")
-    print("Total sent: \(metrics.totalSent)")
-    print("Delivered: \(metrics.delivered)")
-    print("Failed: \(metrics.failed)")
-    print("Delivery rate: \(metrics.deliveryRate)%")
-    print("Average delivery time: \(metrics.averageDeliveryTime)s")
-}
-```
+1. Go to [Apple Developer Portal](https://developer.apple.com/account/resources/authkeys/list)
+2. Create a new key with **Apple Push Notifications service (APNs)**
+3. Download the `.p8` file and note the Key ID
 
-### Engagement Analytics
+### 3. Register for Remote Notifications
 
 ```swift
-// Track user engagement
-analyticsManager.trackEngagement(
-    notificationID: "notification_123",
-    action: "view",
-    timestamp: Date()
-)
+import UIKit
 
-// Track engagement metrics
-analyticsManager.trackEngagementMetrics { metrics in
-    print("📈 Engagement Metrics:")
-    print("Total interactions: \(metrics.totalInteractions)")
-    print("Unique users: \(metrics.uniqueUsers)")
-    print("Average engagement rate: \(metrics.averageEngagementRate)%")
-    print("Most popular action: \(metrics.mostPopularAction)")
-    print("Average time to action: \(metrics.averageTimeToAction)s")
-}
-```
-
-### A/B Testing
-
-```swift
-// Create A/B test
-let abTest = NotificationABTest(
-    testID: "notification_style_test",
-    variants: [
-        NotificationVariant(
-            id: "variant_a",
-            title: "Simple Title",
-            body: "Simple message"
-        ),
-        NotificationVariant(
-            id: "variant_b",
-            title: "Emoji Title 🎉",
-            body: "Exciting message with emoji!"
-        )
-    ],
-    distribution: .equal
-)
-
-// Run A/B test
-notificationManager.runABTest(abTest) { results in
-    print("🧪 A/B Test Results:")
-    print("Variant A engagement: \(results.variantAEngagement)%")
-    print("Variant B engagement: \(results.variantBEngagement)%")
-    print("Winner: \(results.winner)")
-    print("Confidence level: \(results.confidenceLevel)%")
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication, 
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UNUserNotificationCenter.current().delegate = self
+        application.registerForRemoteNotifications()
+        return true
+    }
+    
+    func application(_ application: UIApplication, 
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("Device Token: \(token)")
+        // Send token to your server
+    }
+    
+    func application(_ application: UIApplication, 
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
 }
 ```
 
 ---
 
-## 🎨 Customization
+## Firebase Cloud Messaging (Optional)
 
-### Themed Notifications
-
-```swift
-// Create notification theme
-let appTheme = NotificationTheme(
-    primaryColor: UIColor.systemBlue,
-    secondaryColor: UIColor.systemGray,
-    backgroundColor: UIColor.systemBackground,
-    textColor: UIColor.label,
-    accentColor: UIColor.systemOrange
-)
-
-// Apply theme to notification
-let themedNotification = NotificationContent(
-    title: "Themed Notification",
-    body: "This notification uses custom theming",
-    theme: appTheme
-)
-
-// Configure theme settings
-themedNotification.theme.font = .systemFont(ofSize: 16, weight: .medium)
-themedNotification.theme.cornerRadius = 12
-themedNotification.theme.shadowEnabled = true
-```
-
-### Brand Integration
+### 1. Install Firebase SDK
 
 ```swift
-// Create brand-specific notification
-let brandNotification = NotificationContent(
-    title: "Brand Notification",
-    body: "Consistent with your brand identity",
-    brand: BrandConfiguration(
-        logoURL: "https://example.com/logo.png",
-        brandColors: [UIColor.systemBlue, UIColor.systemGreen],
-        brandFont: .systemFont(ofSize: 18, weight: .bold)
-    )
-)
-
-// Configure brand settings
-brandNotification.brand.logoPosition = .topRight
-brandNotification.brand.colorScheme = .automatic
-brandNotification.brand.animationEnabled = true
-```
-
-### Accessibility Support
-
-```swift
-// Create accessible notification
-let accessibleNotification = NotificationContent(
-    title: "Accessible Notification",
-    body: "This notification is fully accessible",
-    accessibility: AccessibilityConfiguration(
-        voiceOverEnabled: true,
-        largeTextEnabled: true,
-        highContrastEnabled: true,
-        reduceMotionEnabled: true
-    )
-)
-
-// Configure accessibility settings
-accessibleNotification.accessibility.voiceOverLabel = "Important notification"
-accessibleNotification.accessibility.voiceOverHint = "Double tap to open"
-accessibleNotification.accessibility.largeTextScale = 1.2
-```
-
----
-
-## 📱 Usage Examples
-
-### Simple Notification
-
-```swift
-// Create simple notification
-let simpleNotification = NotificationContent(
-    title: "Welcome!",
-    body: "Thank you for using our app",
-    category: "welcome"
-)
-
-// Schedule simple notification
-try notificationManager.schedule(
-    simpleNotification,
-    at: Date().addingTimeInterval(60)
-)
-```
-
-### Rich Media Notification
-
-```swift
-// Create rich media notification
-let richNotification = RichNotificationContent(
-    title: "New Product Available",
-    body: "Check out our latest collection",
-    mediaURL: "https://example.com/image.jpg",
-    actions: [
-        NotificationAction(title: "View", identifier: "view_action"),
-        NotificationAction(title: "Share", identifier: "share_action")
-    ]
-)
-
-// Schedule rich media notification
-try notificationManager.schedule(
-    richNotification,
-    at: Date().addingTimeInterval(120)
-)
-```
-
-### Batch Notifications
-
-```swift
-// Create batch of notifications
-let notifications = [
-    NotificationContent(title: "Task 1", body: "Complete task 1"),
-    NotificationContent(title: "Task 2", body: "Complete task 2"),
-    NotificationContent(title: "Task 3", body: "Complete task 3")
+dependencies: [
+    .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.0.0")
 ]
-
-// Schedule batch notifications
-try notificationManager.scheduleBatch(
-    notifications,
-    withInterval: 300 // 5 minutes between each
-)
 ```
 
----
-
-## 🔧 Configuration
-
-### Notification Categories
+### 2. Configure Firebase
 
 ```swift
-// Configure notification categories
-let messageCategory = NotificationCategory(
-    identifier: "message",
-    actions: [viewAction, replyAction, deleteAction],
-    options: [.customDismissAction]
-)
+import Firebase
+import FirebaseMessaging
 
-let reminderCategory = NotificationCategory(
-    identifier: "reminder",
-    actions: [snoozeAction, completeAction],
-    options: [.allowInCarPlay]
-)
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication, 
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        return true
+    }
+}
 
-// Register categories
-notificationManager.registerCategories([messageCategory, reminderCategory])
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let token = fcmToken else { return }
+        print("FCM Token: \(token)")
+        // Send to your server
+    }
+}
 ```
 
-### Notification Settings
+---
+
+## Advanced Scheduling
 
 ```swift
-// Configure notification settings
-let notificationSettings = NotificationSettings()
-notificationSettings.soundEnabled = true
-notificationSettings.badgeEnabled = true
-notificationSettings.alertEnabled = true
-notificationSettings.criticalAlertsEnabled = false
-notificationSettings.provisionalAuthorizationEnabled = true
+// Calendar-based trigger
+let dateComponents = DateComponents(hour: 9, minute: 0, weekday: 2) // Every Monday at 9 AM
+manager.schedule(content, matching: dateComponents, repeats: true)
 
-// Apply settings
-notificationManager.configure(settings: notificationSettings)
+// Location-based trigger
+let region = CLCircularRegion(
+    center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
+    radius: 100,
+    identifier: "office"
+)
+region.notifyOnEntry = true
+manager.schedule(content, entering: region)
+
+// Batch scheduling
+let notifications = [
+    (content: reminder1, delay: 3600),
+    (content: reminder2, delay: 7200),
+    (content: reminder3, delay: 10800)
+]
+manager.scheduleBatch(notifications)
 ```
 
 ---
 
-## 📚 Documentation
+## Handling Notifications
 
-### API Documentation
-
-Comprehensive API documentation is available for all public interfaces:
-
-* [Notification Manager API](Documentation/NotificationManagerAPI.md) - Core notification management
-* [Rich Media API](Documentation/RichMediaAPI.md) - Rich media notifications
-* [Custom Actions API](Documentation/CustomActionsAPI.md) - Custom notification actions
-* [Scheduling API](Documentation/SchedulingAPI.md) - Advanced notification scheduling
-* [Analytics API](Documentation/AnalyticsAPI.md) - Analytics and tracking
-* [Customization API](Documentation/CustomizationAPI.md) - Notification customization
-* [Accessibility API](Documentation/AccessibilityAPI.md) - Accessibility features
-* [Localization API](Documentation/LocalizationAPI.md) - Multi-language support
-
-### Integration Guides
-
-* [Getting Started Guide](Documentation/GettingStarted.md) - Quick start tutorial
-* [Rich Media Guide](Documentation/RichMediaGuide.md) - Rich media implementation
-* [Custom Actions Guide](Documentation/CustomActionsGuide.md) - Custom actions setup
-* [Scheduling Guide](Documentation/SchedulingGuide.md) - Advanced scheduling
-* [Analytics Guide](Documentation/AnalyticsGuide.md) - Analytics implementation
-* [Customization Guide](Documentation/CustomizationGuide.md) - Customization options
-* [Accessibility Guide](Documentation/AccessibilityGuide.md) - Accessibility features
-* [Localization Guide](Documentation/LocalizationGuide.md) - Multi-language support
-
-### Examples
-
-* [Basic Examples](Examples/BasicExamples/) - Simple notification implementations
-* [Rich Media Examples](Examples/RichMediaExamples/) - Rich media notification examples
-* [Custom Actions Examples](Examples/CustomActionsExamples/) - Custom action implementations
-* [Scheduling Examples](Examples/SchedulingExamples/) - Advanced scheduling examples
-* [Analytics Examples](Examples/AnalyticsExamples/) - Analytics implementation examples
-* [Customization Examples](Examples/CustomizationExamples/) - Customization examples
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-### Development Setup
-
-1. **Fork** the repository
-2. **Create feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open Pull Request**
-
-### Code Standards
-
-* Follow Swift API Design Guidelines
-* Maintain 100% test coverage
-* Use meaningful commit messages
-* Update documentation as needed
-* Follow notification best practices
-* Implement proper error handling
-* Add comprehensive examples
+```swift
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    // Called when notification received in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound, .badge])
+    }
+    
+    // Called when user taps notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let actionIdentifier = response.actionIdentifier
+        let userInfo = response.notification.request.content.userInfo
+        
+        switch actionIdentifier {
+        case "LIKE":
+            handleLikeAction(userInfo: userInfo)
+        case "REPLY":
+            if let textResponse = response as? UNTextInputNotificationResponse {
+                handleReply(text: textResponse.userText, userInfo: userInfo)
+            }
+        default:
+            handleNotificationTap(userInfo: userInfo)
+        }
+        
+        completionHandler()
+    }
+}
+```
 
 ---
 
-## 📄 License
+## Requirements
+
+| Component | Version |
+|-----------|---------|
+| iOS | 15.0+ |
+| Swift | 5.9+ |
+| Xcode | 15.0+ |
+
+---
+
+## Documentation
+
+- [API Reference](Documentation/API.md)
+- [Rich Media Guide](Documentation/RichMedia.md)
+- [Scheduling Guide](Documentation/Scheduling.md)
+- [Troubleshooting](Documentation/Troubleshooting.md)
+
+---
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a pull request.
+
+---
+
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-* **Apple** for the excellent iOS development platform
-* **The Swift Community** for inspiration and feedback
-* **All Contributors** who help improve this framework
-* **Notification Community** for best practices and standards
-* **Open Source Community** for continuous innovation
-* **iOS Developer Community** for notification insights
-* **UX/UI Community** for design inspiration
-
----
-
-**⭐ Star this repository if it helped you!**
-
----
-
-## 📊 Project Statistics
-
-<div align="center">
-
-### 🏆 Live Statistics
-
-<div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-
-![GitHub Stars](https://img.shields.io/github/stars/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=github&logoColor=white)
-![GitHub Forks](https://img.shields.io/github/forks/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=git&logoColor=white&color=blue&label=Forks)
-![GitHub Issues](https://img.shields.io/github/issues/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=github&logoColor=white&color=red&label=Issues)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=github&logoColor=white&color=green&label=PRs)
-![GitHub License](https://img.shields.io/github/license/muhittincamdali/iOS-Notification-Framework?style=for-the-badge&logo=github&logoColor=white&color=purple&label=License)
-
-</div>
-
-### 📈 Growth Analytics
-
-<div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-
-![Weekly Downloads](https://img.shields.io/badge/Downloads-2.5k%2Fweek-brightgreen?style=for-the-badge&logo=download&logoColor=white)
-![Monthly Active](https://img.shields.io/badge/Active-15k%2Fmonth-blue?style=for-the-badge&logo=users&logoColor=white)
-![Code Coverage](https://img.shields.io/badge/Coverage-98%25-brightgreen?style=for-the-badge&logo=coverage&logoColor=white)
-![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=github&logoColor=white)
-
-</div>
-
-### 🌟 Stargazers Community
-
-**⭐ Star this repository if it helped you!**
-
-**💫 Join our amazing community of developers!**
-
-</div> 
-## QuickStart
-
-1. Add the package to your project using Swift Package Manager.
-2. Build: 
-3. Run tests: 
-4. Explore examples in  and .
