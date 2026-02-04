@@ -1,0 +1,9 @@
+# Code Owners for iOS-Notification-Framework
+* @muhittincamdali
+/Sources/ @muhittincamdali
+/Tests/ @muhittincamdali
+/Examples/ @muhittincamdali
+/Documentation/ @muhittincamdali
+*.md @muhittincamdali
+Package.swift @muhittincamdali
+*.podspec @muhittincamdali
