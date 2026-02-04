@@ -34,6 +34,19 @@
 
 ---
 
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [API Reference](#-api-reference)
+- [Contributing](#contributing)
+- [License](#license)
+- [Star History](#-star-history)
+
+---
+
 ## ✨ Features
 
 - 🔔 **Type-Safe Scheduling** — Builder pattern with compile-time safety
