@@ -225,7 +225,7 @@ public struct ABVariant: Sendable, Identifiable {
     public var weight: Double
     
     /// Override values for notification properties
-    public var overrides: [String: Any]
+    public var overrides: [String: Sendable]
     
     // MARK: - Initialization
     

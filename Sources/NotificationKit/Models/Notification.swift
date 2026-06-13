@@ -40,7 +40,7 @@ public struct Notification: Sendable {
     public var threadIdentifier: String?
     
     /// Custom user info dictionary
-    public var userInfo: [String: Any] = [:]
+    public var userInfo: [String: Sendable] = [:]
     
     /// The notification trigger
     public var trigger: NotificationTrigger = .immediate
@@ -85,7 +85,7 @@ public struct Notification: Sendable {
     public var launchImageName: String?
     
     /// Action data for quick actions
-    public var actionData: [String: Any] = [:]
+    public var actionData: [String: Sendable] = [:]
     
     /// Personalization data
     public var personalization: PersonalizationData?
@@ -341,7 +341,7 @@ public struct Notification: Sendable {
     /// Adds custom user info
     /// - Parameter userInfo: The user info dictionary
     /// - Returns: The modified notification
-    public func userInfo(_ userInfo: [String: Any]) -> Notification {
+    public func userInfo(_ userInfo: [String: Sendable]) -> Notification {
         var copy = self
         copy.userInfo = userInfo
         return copy
@@ -434,7 +434,7 @@ public struct Notification: Sendable {
     }
     
     /// Adds action data
-    public func actionData(_ data: [String: Any]) -> Notification {
+    public func actionData(_ data: [String: Sendable]) -> Notification {
         var copy = self
         copy.actionData = data
         copy.userInfo["actionData"] = data
@@ -604,7 +604,7 @@ public struct NotificationAttachment: Sendable {
     // MARK: - Conversion
     
     func toUNAttachment() throws -> UNNotificationAttachment {
-        var options: [String: Any] = [:]
+        var options: [String: Sendable] = [:]
         
         if !showThumbnail {
             options[UNNotificationAttachmentOptionsThumbnailHiddenKey] = true
@@ -662,7 +662,7 @@ public struct PersonalizationData: Sendable {
 
 extension CGRect {
     /// Converts CGRect to dictionary for notification attachment options
-    static func toDictionary(_ rect: CGRect) -> [String: Any] {
+    static func toDictionary(_ rect: CGRect) -> [String: Sendable] {
         return [
             "X": rect.origin.x,
             "Y": rect.origin.y,

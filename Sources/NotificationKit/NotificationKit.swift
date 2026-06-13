@@ -399,7 +399,7 @@ extension NotificationKit: UNUserNotificationCenterDelegate {
         }
         
         if let delegate = await delegate {
-            return await delegate.notificationKit(MainActor.assumeIsolated { self }, willPresent: notification)
+            return await delegate.notificationKit(self, willPresent: notification)
         }
         
         return [.banner, .sound, .badge, .list]
@@ -426,7 +426,7 @@ extension NotificationKit: UNUserNotificationCenterDelegate {
         }
         
         if let delegate = await delegate {
-            await delegate.notificationKit(MainActor.assumeIsolated { self }, didReceive: response)
+            await delegate.notificationKit(self, didReceive: response)
         }
     }
 }
@@ -445,7 +445,7 @@ public struct NotificationBuilder {
 
 /// Delegate protocol for handling notification events
 @MainActor
-public protocol NotificationKitDelegate: AnyObject {
+public protocol NotificationKitDelegate: AnyObject, Sendable {
     /// Called when a notification is about to be presented
     func notificationKit(
         _ kit: NotificationKit,
