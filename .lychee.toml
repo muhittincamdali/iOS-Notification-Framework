@@ -39,3 +39,14 @@ exclude_path = [
   "build",
   "Pods",
 ]
+
+# Links that only resolve once this pull request is merged and the documentation is deployed:
+# the badge and button images on raw.githubusercontent.com and github.com point at main, and the
+# DocC site on github.io is published from main. Until then they are checked at the commit that
+# adds them. Delete this block after the first documentation deploy so the real addresses are
+# checked again.
+remap = [
+  '^https://muhittincamdali\.github\.io/iOS-Notification-Framework/documentation/.* https://github.com/muhittincamdali/iOS-Notification-Framework/tree/93efabc10cff020aa821591112895773acbad1ae/Sources/NotificationKit/NotificationKit.docc',
+  '^https://raw\.githubusercontent\.com/muhittincamdali/iOS-Notification-Framework/main/(.*) https://raw.githubusercontent.com/muhittincamdali/iOS-Notification-Framework/93efabc10cff020aa821591112895773acbad1ae/$1',
+  '^https://github\.com/muhittincamdali/iOS-Notification-Framework/blob/main/(.*) https://github.com/muhittincamdali/iOS-Notification-Framework/blob/93efabc10cff020aa821591112895773acbad1ae/$1',
+]
