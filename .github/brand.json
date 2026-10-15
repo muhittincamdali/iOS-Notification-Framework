@@ -1,0 +1,44 @@
+{
+  "name": "NotificationKit",
+  "repository": "muhittincamdali/iOS-Notification-Framework",
+  "tagline": {
+    "en": "Schedule local notifications past iOS's 64 limit, route taps and send pushes through APNs."
+  },
+  "tags": {
+    "en": [
+      "Swift 6",
+      "Apple platforms",
+      "APNs",
+      "No dependencies"
+    ]
+  },
+  "motif": "phone",
+  "buttons": [
+    "start",
+    "docs",
+    "examples"
+  ],
+  "links": {
+    "docs": "https://muhittincamdali.github.io/iOS-Notification-Framework/documentation/notificationkit/",
+    "examples": "Examples/"
+  },
+  "languages": [
+    "en",
+    "tr",
+    "zh-CN",
+    "ja",
+    "ko",
+    "es",
+    "de",
+    "fr",
+    "pt-BR",
+    "ru"
+  ],
+  "docc": {
+    "targets": [
+      "NotificationKit",
+      "NotificationKitAPNs"
+    ]
+  },
+  "socialTheme": "dark"
+}
