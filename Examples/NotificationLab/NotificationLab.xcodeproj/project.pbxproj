@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1735CC88C54BCF35EA49687A /* ReadmeSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ECAEA4DEA7B0C54DC0FE1F /* ReadmeSamples.swift */; };
+		23BF1D30298732FC3000B6C9 /* LabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DB5BD02FF13D94B322FDE /* LabView.swift */; };
+		53B0A1AAA0DA2ADB4A4AF5A6 /* NotificationLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159413C2060F819160E82AD2 /* NotificationLabApp.swift */; };
+		5BFD97349FE4A4421C459D6F /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71DECF53B2CA6833902A8C23 /* NotificationKit */; };
+		7C8CE0C08F2407997877CB65 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4593D3B90E41E3C607A515 /* NotificationService.swift */; };
+		95610CBFE3A940D890633626 /* NotificationLabService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 85FA4834D46FEC1E77435042 /* NotificationLabService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AC91903D327D88BD056C0BBF /* NotificationLabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB75EA47C07E30ABFB6E1 /* NotificationLabUITests.swift */; };
+		C52C3FAA96457656CB314E48 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6527029852F686E9F3388B37 /* NotificationKit */; };
+		D323022444BD23F3007AF58A /* LabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E169111EFAFC509579E2DC0 /* LabModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9AB32BA98FE3CEA37B446FB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92F7903CD2335DE77FC7A73B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4923DF4FB5C66C53125D6354;
+			remoteInfo = NotificationLab;
+		};
+		F6D1E4B691152B555A39D631 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92F7903CD2335DE77FC7A73B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28E63D5A2C3C4BC3D49FC462;
+			remoteInfo = NotificationLabService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DE8FF1A3867DDE74E87C6E5C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				95610CBFE3A940D890633626 /* NotificationLabService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0E169111EFAFC509579E2DC0 /* LabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabModel.swift; sourceTree = "<group>"; };
+		159413C2060F819160E82AD2 /* NotificationLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLabApp.swift; sourceTree = "<group>"; };
+		1E4593D3B90E41E3C607A515 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		4B7BE33132AA531FCA9360B0 /* iOS-Notification-Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "iOS-Notification-Framework"; path = ../..; sourceTree = SOURCE_ROOT; };
+		75ECAEA4DEA7B0C54DC0FE1F /* ReadmeSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeSamples.swift; sourceTree = "<group>"; };
+		800DB5BD02FF13D94B322FDE /* LabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabView.swift; sourceTree = "<group>"; };
+		85FA4834D46FEC1E77435042 /* NotificationLabService.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NotificationLabService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C57440193CDCE86C005146E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AE9BD0058E13CAA0D8C78B6D /* NotificationLab.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NotificationLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAEDB75EA47C07E30ABFB6E1 /* NotificationLabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLabUITests.swift; sourceTree = "<group>"; };
+		E6E14450A04E639DEEBD0CE1 /* NotificationLabUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NotificationLabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7503DD58AADFB20ED444F72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CCFCE480C745F8ECC44F4F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFD97349FE4A4421C459D6F /* NotificationKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70E08A008700FEC24A27350D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C52C3FAA96457656CB314E48 /* NotificationKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		007A38B5B7965DFA9087D206 /* NotificationLab */ = {
+			isa = PBXGroup;
+			children = (
+				9C57440193CDCE86C005146E /* Info.plist */,
+				0E169111EFAFC509579E2DC0 /* LabModel.swift */,
+				800DB5BD02FF13D94B322FDE /* LabView.swift */,
+				159413C2060F819160E82AD2 /* NotificationLabApp.swift */,
+				75ECAEA4DEA7B0C54DC0FE1F /* ReadmeSamples.swift */,
+			);
+			path = NotificationLab;
+			sourceTree = "<group>";
+		};
+		185743EE279167C07401646E /* NotificationLabUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BAEDB75EA47C07E30ABFB6E1 /* NotificationLabUITests.swift */,
+			);
+			path = NotificationLabUITests;
+			sourceTree = "<group>";
+		};
+		42BE4EC9992279E64193AB11 = {
+			isa = PBXGroup;
+			children = (
+				007A38B5B7965DFA9087D206 /* NotificationLab */,
+				750F20B6983F73C61D8A5117 /* NotificationLabService */,
+				185743EE279167C07401646E /* NotificationLabUITests */,
+				5CED3238C8BF043949EF36D2 /* Packages */,
+				8C6A91D62511A0914AB30992 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CED3238C8BF043949EF36D2 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				4B7BE33132AA531FCA9360B0 /* iOS-Notification-Framework */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		750F20B6983F73C61D8A5117 /* NotificationLabService */ = {
+			isa = PBXGroup;
+			children = (
+				F7503DD58AADFB20ED444F72 /* Info.plist */,
+				1E4593D3B90E41E3C607A515 /* NotificationService.swift */,
+			);
+			path = NotificationLabService;
+			sourceTree = "<group>";
+		};
+		8C6A91D62511A0914AB30992 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE9BD0058E13CAA0D8C78B6D /* NotificationLab.app */,
+				85FA4834D46FEC1E77435042 /* NotificationLabService.appex */,
+				E6E14450A04E639DEEBD0CE1 /* NotificationLabUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28E63D5A2C3C4BC3D49FC462 /* NotificationLabService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3962A3E3FF9CBD40BF90EB9B /* Build configuration list for PBXNativeTarget "NotificationLabService" */;
+			buildPhases = (
+				5A2EB8A62B1931AFB014865F /* Sources */,
+				70E08A008700FEC24A27350D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationLabService;
+			packageProductDependencies = (
+				6527029852F686E9F3388B37 /* NotificationKit */,
+			);
+			productName = NotificationLabService;
+			productReference = 85FA4834D46FEC1E77435042 /* NotificationLabService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		4923DF4FB5C66C53125D6354 /* NotificationLab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D736C36F1A2C1A7FE01482 /* Build configuration list for PBXNativeTarget "NotificationLab" */;
+			buildPhases = (
+				564451C11D798850A7E9FB2E /* Sources */,
+				4CCFCE480C745F8ECC44F4F3 /* Frameworks */,
+				DE8FF1A3867DDE74E87C6E5C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42E95788CD15CD0EC7790AC8 /* PBXTargetDependency */,
+			);
+			name = NotificationLab;
+			packageProductDependencies = (
+				71DECF53B2CA6833902A8C23 /* NotificationKit */,
+			);
+			productName = NotificationLab;
+			productReference = AE9BD0058E13CAA0D8C78B6D /* NotificationLab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0A1D843F1A937B886C79E8A /* NotificationLabUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0075E59886104B69DB268F5B /* Build configuration list for PBXNativeTarget "NotificationLabUITests" */;
+			buildPhases = (
+				C33319B721BD66A97C698EA0 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7852669F6B75AD7CF0F00AAE /* PBXTargetDependency */,
+			);
+			name = NotificationLabUITests;
+			packageProductDependencies = (
+			);
+			productName = NotificationLabUITests;
+			productReference = E6E14450A04E639DEEBD0CE1 /* NotificationLabUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92F7903CD2335DE77FC7A73B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					28E63D5A2C3C4BC3D49FC462 = {
+						ProvisioningStyle = Automatic;
+					};
+					4923DF4FB5C66C53125D6354 = {
+						ProvisioningStyle = Automatic;
+					};
+					D0A1D843F1A937B886C79E8A = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4923DF4FB5C66C53125D6354;
+					};
+				};
+			};
+			buildConfigurationList = BC671B0F5A0EEC8345EE01C7 /* Build configuration list for PBXProject "NotificationLab" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 42BE4EC9992279E64193AB11;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				318A6DBBA9E2A5872F113DD3 /* XCLocalSwiftPackageReference "../.." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8C6A91D62511A0914AB30992 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4923DF4FB5C66C53125D6354 /* NotificationLab */,
+				28E63D5A2C3C4BC3D49FC462 /* NotificationLabService */,
+				D0A1D843F1A937B886C79E8A /* NotificationLabUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		564451C11D798850A7E9FB2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D323022444BD23F3007AF58A /* LabModel.swift in Sources */,
+				23BF1D30298732FC3000B6C9 /* LabView.swift in Sources */,
+				53B0A1AAA0DA2ADB4A4AF5A6 /* NotificationLabApp.swift in Sources */,
+				1735CC88C54BCF35EA49687A /* ReadmeSamples.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A2EB8A62B1931AFB014865F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C8CE0C08F2407997877CB65 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C33319B721BD66A97C698EA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC91903D327D88BD056C0BBF /* NotificationLabUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		42E95788CD15CD0EC7790AC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28E63D5A2C3C4BC3D49FC462 /* NotificationLabService */;
+			targetProxy = F6D1E4B691152B555A39D631 /* PBXContainerItemProxy */;
+		};
+		7852669F6B75AD7CF0F00AAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4923DF4FB5C66C53125D6354 /* NotificationLab */;
+			targetProxy = 9AB32BA98FE3CEA37B446FB5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1B33A7BAD48A8F896AB52431 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationLab/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Notification Lab";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.muhittincamdali.NotificationLab;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2168C61F1DF2DCFAD96D7708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.muhittincamdali.NotificationLab.UITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NotificationLab;
+			};
+			name = Debug;
+		};
+		2E011C7F1CC6D19ACB6C9507 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.muhittincamdali.NotificationLab.UITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NotificationLab;
+			};
+			name = Release;
+		};
+		86129F25D24DC09B032607FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationLabService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Notification Lab Service";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.muhittincamdali.NotificationLab.Service;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A6EEB4992F4E557485880405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationLabService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Notification Lab Service";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.muhittincamdali.NotificationLab.Service;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B44E45DD99C8FDF2C2869B5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		CAA66B133E4545C1AC1CFEF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		DF6BF276876455F90AB77BAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationLab/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Notification Lab";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.muhittincamdali.NotificationLab;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0075E59886104B69DB268F5B /* Build configuration list for PBXNativeTarget "NotificationLabUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2168C61F1DF2DCFAD96D7708 /* Debug */,
+				2E011C7F1CC6D19ACB6C9507 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3962A3E3FF9CBD40BF90EB9B /* Build configuration list for PBXNativeTarget "NotificationLabService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86129F25D24DC09B032607FD /* Debug */,
+				A6EEB4992F4E557485880405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		93D736C36F1A2C1A7FE01482 /* Build configuration list for PBXNativeTarget "NotificationLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B33A7BAD48A8F896AB52431 /* Debug */,
+				DF6BF276876455F90AB77BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BC671B0F5A0EEC8345EE01C7 /* Build configuration list for PBXProject "NotificationLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44E45DD99C8FDF2C2869B5B /* Debug */,
+				CAA66B133E4545C1AC1CFEF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		318A6DBBA9E2A5872F113DD3 /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6527029852F686E9F3388B37 /* NotificationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NotificationKit;
+		};
+		71DECF53B2CA6833902A8C23 /* NotificationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NotificationKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 92F7903CD2335DE77FC7A73B /* Project object */;
+}
