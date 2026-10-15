@@ -75,4 +75,10 @@ struct JSONValueTests {
         #expect(JSONValue.object(["x": 1]).isWithinLimits(.default))
     }
 
+    @Test("leaves out unconvertible userInfo values but keeps the others")
+    func lenientConversion() {
+        let info: [AnyHashable: Any] = ["date": Date(), "name": "kept", 7: "numeric key", "nan": Double.nan]
+        let object = JSONValue.lenientObject(from: info)
+        #expect(object == ["name": "kept"])
+    }
 }
