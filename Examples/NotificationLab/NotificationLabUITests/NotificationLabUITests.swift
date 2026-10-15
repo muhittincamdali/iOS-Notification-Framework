@@ -10,6 +10,10 @@ final class NotificationLabUITests: XCTestCase {
     private var app: XCUIApplication!
 
     override func setUp() async throws {
+        // Skip before launching the app: a skipped test has no use for a launch and a permission prompt.
+        if name.contains("testPushOpensOrder"), ProcessInfo.processInfo.environment["PUSH_READY_FILE"] == nil {
+            throw XCTSkip("Run by scripts/capture-screenshots.sh, which sends the push.")
+        }
         springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         continueAfterFailure = false
         app = XCUIApplication()
@@ -60,9 +64,7 @@ final class NotificationLabUITests: XCTestCase {
 
     /// Waits for a push sent with `xcrun simctl push` (see scripts/capture-screenshots.sh).
     func testPushOpensOrder() throws {
-        guard let marker = ProcessInfo.processInfo.environment["PUSH_READY_FILE"] else {
-            throw XCTSkip("Run by scripts/capture-screenshots.sh, which sends the push.")
-        }
+        let marker = try XCTUnwrap(ProcessInfo.processInfo.environment["PUSH_READY_FILE"])
         XCUIDevice.shared.press(.home)
         FileManager.default.createFile(atPath: marker, contents: Data("ready".utf8))
         let banner = springboard.descendants(matching: .any)

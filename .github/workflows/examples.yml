@@ -39,6 +39,8 @@ jobs:
             echo "::error::No available iPhone simulator on this image"
             exit 1
           fi
+          # A cold simulator makes the first app launch exceed Xcode's launch timeout.
+          xcrun simctl bootstatus "$udid" -b
           xcodebuild test -project NotificationLab.xcodeproj -scheme NotificationLab \
             -destination "id=$udid" -skipPackagePluginValidation -skipMacroValidation -quiet \
             -resultBundlePath "$RUNNER_TEMP/NotificationLab.xcresult"
