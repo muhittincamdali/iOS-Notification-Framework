@@ -1,58 +1,59 @@
-# Contributing to NotificationKit
+# Contributing
 
-Thank you for your interest in contributing! This document provides guidelines and steps for contributing.
+Thanks for taking the time to improve NotificationKit.
 
-## Code of Conduct
+## Reporting bugs
 
-Please be respectful and constructive in all interactions.
+Open an issue with:
 
-## How to Contribute
+- the notification or payload involved (with personal data and device tokens removed),
+- what you expected and what happened,
+- platform and OS version (simulator or device) and Xcode version.
 
-### Reporting Bugs
+Report security issues privately, as described in the
+[security policy](https://github.com/muhittincamdali/.github/blob/main/SECURITY.md), not in an
+issue. That includes anything that lets a push payload, a deep link or a downloaded file make
+the app crash, hang or open something it should not.
 
-1. Check existing issues first
-2. Use the bug report template
-3. Include reproduction steps
-4. Provide environment details
+## Pull requests
 
-### Suggesting Features
+1. Fork the repository and branch from `main`.
+2. Keep each pull request focused on one change.
+3. Run the tests on macOS and on an iOS simulator:
 
-1. Check existing feature requests
-2. Use the feature request template
-3. Explain the use case
-4. Provide examples if possible
+    ```sh
+    swift test
+    xcodebuild test -scheme NotificationKit-Package \
+      -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+    ```
 
-### Pull Requests
+4. If you change scheduling, validation, payload or routing logic, add or update a test in
+   `Tests/`. Scheduling tests use `InMemoryNotificationCenter` and a test clock, so they do not
+   depend on the time of day or a device.
+5. Code that reads input from outside the app (payloads, links, files, network answers) must
+   bound how much memory and time it can use, and must range-check a `Double` before turning it
+   into an `Int`. Add a test with hostile input.
+6. If you change a README code sample, change the copy in
+   `Examples/NotificationLab/NotificationLab/ReadmeSamples.swift` as well. That file is what gets
+   compiled: by the example app, and by `swift test` through the symlink
+   `Tests/NotificationKitTests/ReadmeExamples.swift`.
+7. If you change the example app or event handling, run its UI tests
+   (`Examples/README.md` shows how) and regenerate the screenshots with
+   `scripts/capture-screenshots.sh`.
+8. `README.md` has translations (`README.<language>.md`). Each one records the version of
+   `README.md` it follows, and CI fails while a translation is behind. If you change `README.md`
+   and cannot update the translations, say so in the pull request and they will be updated
+   before it is merged.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass (`swift test`)
-6. Commit with conventional commits (`feat:`, `fix:`, `docs:`)
-7. Push and open a PR
+## Code style
 
-## Development Setup
+- Follow the [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/).
+- The package builds in the Swift 6 language mode; new code should not add warnings.
+- Document public API with DocC comments (`///`), and keep `xcodebuild docbuild` free of
+  warnings.
+- Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/)
+  (`feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `ci:`, `chore:`).
 
-```bash
-# Clone your fork
-git clone https://github.com/YOUR-USERNAME/iOS-Notification-Framework.git
-cd iOS-Notification-Framework
+## License
 
-# Build
-swift build
-
-# Run tests
-swift test
-```
-
-## Code Style
-
-- Follow Swift API Design Guidelines
-- Use SwiftLint (config provided)
-- Document all public APIs
-- Write descriptive commit messages
-
-## Questions?
-
-Open an issue or discussion. We're happy to help!
+By contributing you agree that your contributions are licensed under the MIT License.
