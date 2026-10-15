@@ -1,0 +1,11 @@
+version: 1
+builder:
+  configs:
+    - platform: ios
+      scheme: NotificationKit-Package
+      documentation_targets: [NotificationKit, NotificationKitAPNs]
+    - platform: macos-spm
+    - platform: watchos
+      scheme: NotificationKit-Package
+    - platform: visionos
+      scheme: NotificationKit-Package
