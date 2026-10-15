@@ -10,16 +10,26 @@ let package = Package(
         .visionOS(.v1)
     ],
     products: [
-        .library(name: "NotificationKit", targets: ["NotificationKit"])
+        .library(name: "NotificationKit", targets: ["NotificationKit"]),
+        .library(name: "NotificationKitAPNs", targets: ["NotificationKitAPNs"])
     ],
     targets: [
         .target(
             name: "NotificationKit",
             path: "Sources/NotificationKit"
         ),
+        .target(
+            name: "NotificationKitAPNs",
+            dependencies: ["NotificationKit"],
+            path: "Sources/NotificationKitAPNs"
+        ),
         .testTarget(
             name: "NotificationKitTests",
             dependencies: ["NotificationKit"]
+        ),
+        .testTarget(
+            name: "NotificationKitAPNsTests",
+            dependencies: ["NotificationKitAPNs"]
         )
     ]
 )
