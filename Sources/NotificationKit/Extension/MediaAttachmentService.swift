@@ -35,12 +35,10 @@ open class MediaAttachmentService: UNNotificationServiceExtension {
     ) {
         let original = request.content
         delivery.prepare(fallback: original, handler: contentHandler)
-        let key = mediaURLKey
-        let downloader = downloader
-        Task { [delivery] in
-            let content = await Self.content(for: original, mediaURLKey: key, downloader: downloader)
-            delivery.deliver(content)
-        }
+        let job = MediaJob(
+            original: original, mediaURLKey: mediaURLKey, downloader: downloader, delivery: delivery
+        )
+        Task { await job.run() }
     }
 
     override open func serviceExtensionTimeWillExpire() {
@@ -68,6 +66,22 @@ open class MediaAttachmentService: UNNotificationServiceExtension {
         mutable.attachments = [attachment]
         return mutable
         #endif
+    }
+}
+
+/// The inputs of one download, in a single value so the task that runs it captures one
+/// `Sendable` value. `UNNotificationContent` is read-only here and is only copied, never mutated.
+private struct MediaJob: @unchecked Sendable {
+    let original: UNNotificationContent
+    let mediaURLKey: String
+    let downloader: AttachmentDownloader
+    let delivery: OneTimeDelivery
+
+    func run() async {
+        let content = await MediaAttachmentService.content(
+            for: original, mediaURLKey: mediaURLKey, downloader: downloader
+        )
+        delivery.deliver(content)
     }
 }
 
