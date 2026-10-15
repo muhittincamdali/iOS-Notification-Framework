@@ -40,7 +40,22 @@ jobs:
             exit 1
           fi
           xcodebuild test -project NotificationLab.xcodeproj -scheme NotificationLab \
-            -destination "id=$udid" -skipPackagePluginValidation -skipMacroValidation -quiet
+            -destination "id=$udid" -skipPackagePluginValidation -skipMacroValidation -quiet \
+            -resultBundlePath "$RUNNER_TEMP/NotificationLab.xcresult"
+
+      - name: Summarise a failed run
+        if: failure()
+        run: |
+          xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/NotificationLab.xcresult" || true
+          xcrun xcresulttool get test-results tests --path "$RUNNER_TEMP/NotificationLab.xcresult" || true
+
+      - name: Upload the result bundle
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: NotificationLab-xcresult
+          path: ${{ runner.temp }}/NotificationLab.xcresult
+          retention-days: 7
 
   push-sender:
     name: PushSender (macOS)
